@@ -103,6 +103,16 @@ namespace GUI_POLYCAFE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cream_and_Brown_Minimalist_Elegant_Coffee_Shop_Presentation {
+            get {
+                object obj = ResourceManager.GetObject("Cream and Brown Minimalist Elegant Coffee Shop Presentation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Screenshot_2025_04_30_220025 {
             get {
                 object obj = ResourceManager.GetObject("Screenshot 2025-04-30 220025", resourceCulture);

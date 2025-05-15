@@ -51,7 +51,7 @@
             this.MinimumSize = new System.Drawing.Size(976, 653);
             this.Name = "frmWelcome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmWelcome";
+            this.Text = "Welcome";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmWelcome_FormClosing);
             this.Load += new System.EventHandler(this.frmWelcome_Load);
             this.ResumeLayout(false);

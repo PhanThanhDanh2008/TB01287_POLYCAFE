@@ -117,23 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Brown and Beige Illustrated Coffee Shop Presentation (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Brown and Beige Illustrated Coffee Shop Presentation (1).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Brown and Beige Illustrated Coffee Shop Presentation (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Brown and Beige Illustrated Coffee Shop Presentation (2).jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Brown and Beige Illustrated Coffee Shop Presentation" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Brown and Beige Illustrated Coffee Shop Presentation.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="494575604_1208782600224659_1390982396480496353_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\494575604_1208782600224659_1390982396480496353_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Screenshot 2025-04-30 220025" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Screenshot 2025-04-30 220025.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Cream and Brown Minimalist Elegant Coffee Shop Presentation" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cream and Brown Minimalist Elegant Coffee Shop Presentation.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
