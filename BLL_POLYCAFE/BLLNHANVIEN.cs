@@ -19,5 +19,22 @@ namespace BLL_POLYCAFE
             }
             return dalNhanVien.GetNHANVIEN(username, password);
         }
+        public bool ResetMatKhau(string email, string mk)
+        {
+
+            try
+            {
+                if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(mk))
+                {
+                    return false;
+                }
+                dalNhanVien.DOIMATKHAU(mk, email);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

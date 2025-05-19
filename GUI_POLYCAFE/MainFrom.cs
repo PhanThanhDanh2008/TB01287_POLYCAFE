@@ -17,20 +17,9 @@ namespace GUI_POLYCAFE
             InitializeComponent();
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void đỔIMẬTKHẨUToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void qUẢNLÝNHÂNVIÊNToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -44,6 +33,43 @@ namespace GUI_POLYCAFE
             {
                 Application.Exit();
             }
+        }
+        private Form currentFormChild;
+        private void openChildForm(Form childForm)
+        {
+            if (currentFormChild != null)
+            {
+                currentFormChild.Close();
+            }
+            currentFormChild = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            pnlmain.Controls.Add(childForm);
+            pnlmain.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+        }
+
+        private void MainFrom_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DOIMATKHAUToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmDoiMK());
+        }
+
+        private void QLNVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmNhanVien());
+        }
+
+        private void toolStripTXTTIEMKIEM_Click(object sender, EventArgs e)
+        {
+    
+
         }
     }
 }

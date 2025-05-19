@@ -19,5 +19,21 @@ namespace DAL_POLYCAFE
             return nv;
 
         }
+        public void DOIMATKHAU(string mk, string email)
+        {
+            try
+            {
+                string sql = "UPDATE NhanVien SET MatKhau = @0 WHERE Email = @1";
+                List<object> thamso = new List<object>();
+                thamso.Add(mk);
+                thamso.Add(email);
+                DBUtil.Update(sql, thamso);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
