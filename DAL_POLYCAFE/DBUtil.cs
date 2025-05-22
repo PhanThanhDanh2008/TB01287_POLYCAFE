@@ -11,7 +11,7 @@ namespace DAL_POLYCAFE
 {
     public class DBUtil
     {
-        public static string connString = @"Data Source=LAPTOP-FU9P8L2M\SQLEXPRESS01;Initial Catalog=SOF2052_PolyCafe;Integrated Security=True;TrustServerCertificate=True";
+        public static string connString = @"Data Source=LAPTOP-FU9P8L2M\SQLEXPRESS01;Initial Catalog=PolyCafe;Integrated Security=True;TrustServerCertificate=True";
         public static SqlCommand GetCommand(string sql, List<object> args, CommandType cmdType)
         {
             SqlConnection conn = new SqlConnection(connString);
@@ -25,13 +25,25 @@ namespace DAL_POLYCAFE
 
             return cmd;
         }
+        public static object ScalarQuery(string sql, List<object> args, CommandType cmdType = CommandType.Text)
+        {
+            try
+            {
+                SqlCommand cmd = GetCommand(sql, args, cmdType);
+                cmd.Connection.Open();
+                return cmd.ExecuteScalar();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
         public static void Update(string sql, List<object> args, CommandType cmdType = CommandType.Text)
         {
             SqlCommand cmd = GetCommand(sql, args, cmdType);
             cmd.Connection.Open();
             cmd.Transaction = cmd.Connection.BeginTransaction();
-
             try
             {
                 cmd.ExecuteNonQuery();

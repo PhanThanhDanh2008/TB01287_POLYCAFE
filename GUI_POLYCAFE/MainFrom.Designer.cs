@@ -53,10 +53,10 @@
             // 
             // pnlmain
             // 
-            this.pnlmain.Location = new System.Drawing.Point(0, 25);
-            this.pnlmain.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlmain.Location = new System.Drawing.Point(0, 31);
+            this.pnlmain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlmain.Name = "pnlmain";
-            this.pnlmain.Size = new System.Drawing.Size(1174, 667);
+            this.pnlmain.Size = new System.Drawing.Size(1565, 821);
             this.pnlmain.TabIndex = 2;
             // 
             // menuStrip1
@@ -70,7 +70,8 @@
             this.toolStripTXTTIEMKIEM});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1174, 27);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1565, 27);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,6 +110,7 @@
             this.tHOÁTToolStripMenuItem.Name = "tHOÁTToolStripMenuItem";
             this.tHOÁTToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
             this.tHOÁTToolStripMenuItem.Text = "THOÁT";
+            this.tHOÁTToolStripMenuItem.Click += new System.EventHandler(this.tHOÁTToolStripMenuItem_Click);
             // 
             // dANHMỤCToolStripMenuItem
             // 
@@ -199,22 +201,22 @@
             // 
             this.toolStripTXTTIEMKIEM.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTXTTIEMKIEM.Name = "toolStripTXTTIEMKIEM";
-            this.toolStripTXTTIEMKIEM.Size = new System.Drawing.Size(200, 23);
+            this.toolStripTXTTIEMKIEM.Size = new System.Drawing.Size(265, 23);
             this.toolStripTXTTIEMKIEM.Click += new System.EventHandler(this.toolStripTXTTIEMKIEM_Click);
             // 
             // MainFrom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1174, 695);
+            this.ClientSize = new System.Drawing.Size(1565, 855);
             this.Controls.Add(this.pnlmain);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximumSize = new System.Drawing.Size(1190, 734);
-            this.MinimumSize = new System.Drawing.Size(1190, 734);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1581, 894);
+            this.MinimumSize = new System.Drawing.Size(1581, 894);
             this.Name = "MainFrom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainFrom";

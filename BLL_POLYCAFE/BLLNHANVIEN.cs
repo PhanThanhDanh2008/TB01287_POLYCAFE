@@ -13,7 +13,7 @@ namespace BLL_POLYCAFE
         DAL_NHANVIEN dalNhanVien = new DAL_NHANVIEN();
         public NHANVIEN DangNhap(string username, string password)
         {
-            if(string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
                 return null;
             }
@@ -36,5 +36,87 @@ namespace BLL_POLYCAFE
                 return false;
             }
         }
+        public List<NHANVIEN> GetNhanVienList()
+        {
+            return dalNhanVien.selectAll();
+        }
+        public string InsertNhanVien(NHANVIEN nv)
+        {
+            try
+            {
+                nv.MaNhanVien = dalNhanVien.generateMaNhanVien();
+                if(string.IsNullOrEmpty(nv.MaNhanVien) || string.IsNullOrEmpty(nv.HoTen) || string.IsNullOrEmpty(nv.Email) || string.IsNullOrEmpty(nv.MatKhau))
+                {
+                    return "Vui lòng nhập đầy đủ thông tin";
+                }
+                if (string.IsNullOrEmpty(nv.MaNhanVien))
+                {
+                    return "Mã nhân viên khong hop le";
+                }
+                if (dalNhanVien.CheckEmailExceptId(nv.Email,nv.Email))
+                {
+                    return "Email đã tồn tại";
+                }
+                dalNhanVien.insert(nv);
+                return string.Empty;
+
+            }
+            catch (Exception ex)
+            {
+                return "Lỗi thêm nhân viên";
+            }
+        }
+
+
+        public void UpdateVaiTro(string maNhanVien, bool vaiTro)
+        {
+            dalNhanVien.updateVaiTro(maNhanVien, vaiTro);
+        }
+
+        public void UpdateTrangThai(string maNhanVien, bool trangThai)
+        {
+            dalNhanVien.updateTrangThai(maNhanVien, trangThai);
+        }
+        public string UpdateNhanVien(NHANVIEN nv)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(nv.MaNhanVien))
+                {
+                    return "Mã nhân viên không hợp lệ.";
+                }
+
+                dalNhanVien.update(nv);
+                return string.Empty;
+            }
+            catch (Exception ex)
+            {
+                //return "Cập nhật không thành công.";
+                return "Lỗi: " + ex.Message;
+            }
+        }
+        public string DeleteNhanVien(string maNhanVien)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(maNhanVien))
+                {
+                    return "Mã nhân viên không hợp lệ.";
+                }
+
+                NHANVIEN nv = new NHANVIEN { MaNhanVien = maNhanVien };
+                dalNhanVien.delete(nv);
+                return string.Empty;
+            }
+            catch (Exception ex)
+            {
+                return "Lỗi xóa nhân viên: " + ex.Message;
+            }
+        }
+        public bool CheckEmailExceptId(string email, string maNhanVien)
+        {
+            return dalNhanVien.CheckEmailExceptId(email, maNhanVien);
+        }
+
     }
 }
