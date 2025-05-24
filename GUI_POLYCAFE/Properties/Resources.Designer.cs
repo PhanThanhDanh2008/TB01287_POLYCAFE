@@ -73,6 +73,26 @@ namespace GUI_POLYCAFE.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add {
+            get {
+                object obj = ResourceManager.GetObject("add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("add-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Brown_and_Beige_Illustrated_Coffee_Shop_Presentation {
             get {
                 object obj = ResourceManager.GetObject("Brown and Beige Illustrated Coffee Shop Presentation", resourceCulture);

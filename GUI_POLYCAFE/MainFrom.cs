@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UTIL_OLYCAFE;
 
 namespace GUI_POLYCAFE
 {
@@ -15,6 +16,8 @@ namespace GUI_POLYCAFE
         public MainFrom()
         {
             InitializeComponent();
+            // Kiểm tra quyền truy cập của người dùng
+            //CheckPermission();
         }
 
 
@@ -55,6 +58,50 @@ namespace GUI_POLYCAFE
         {
 
         }
+        //private void CheckPermission()
+        //{
+        //    if (AuthUtil.IsLogin())
+        //    {
+        //        hỆTHỐNGToolStripMenuItem.Visible = true;
+        //        dANHMỤCToolStripMenuItem.Visible = true;
+        //        pHIẾUBÁNHÀNGToolStripMenuItem.Visible = true;
+        //        mỤCLỤCToolStripMenuItem.Visible = true;
+        //        bÁOCÁOToolStripMenuItem.Visible = true;
+
+              
+        //        if (AuthUtil.user.VaiTro == false)
+        //        {
+        //            VaiTroNhanVien();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        hỆTHỐNGToolStripMenuItem.Visible = true;
+        //        đĂNGXUẤTToolStripMenuItem.Visible = false;
+        //        dANHMỤCToolStripMenuItem.Visible = false;
+        //        pHIẾUBÁNHÀNGToolStripMenuItem.Visible = false;
+        //        mỤCLỤCToolStripMenuItem.Visible = false;
+        //        bÁOCÁOToolStripMenuItem.Visible = false;
+        //    }
+        //}
+
+        // Phương thức để áp dụng quyền cho nhân viên
+        private void VaiTroNhanVien()
+        {
+            // Nhân viên chỉ được phép một số menu nhất định
+            qUẢNLÝSẢNPHẨMToolStripMenuItem.Enabled = true;
+            qUẢNLÝLOẠISẢNPHẨMToolStripMenuItem.Enabled = true;
+            qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem.Enabled = true;
+            qUẢNLÝCHITIẾTPHIẾUBÁNHÀNGToolStripMenuItem.Enabled = true;
+            toolStripTXTTIEMKIEM.Enabled = true;
+
+            // Vô hiệu hóa các menu không cho nhân viên truy cập
+            bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem.Enabled = false;
+            bÁOCÁODOANHTHUNHÂNVIÊNToolStripMenuItem.Enabled = false;
+            QLNVToolStripMenuItem.Enabled = false;
+            qUẢNLÝTHẺLƯUĐỘNGToolStripMenuItem.Enabled = false;
+        }
+
 
         private void DOIMATKHAUToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -80,6 +127,11 @@ namespace GUI_POLYCAFE
             {
                 Application.Exit();
             }
+        }
+
+        private void qUẢNLÝTHẺLƯUĐỘNGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmtheluudong());
         }
     }
 }

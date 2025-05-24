@@ -253,7 +253,7 @@
             // 
             // txtmanv
             // 
-            this.txtmanv.Location = new System.Drawing.Point(157, 23);
+            this.txtmanv.Location = new System.Drawing.Point(157, 26);
             this.txtmanv.Margin = new System.Windows.Forms.Padding(4);
             this.txtmanv.Name = "txtmanv";
             this.txtmanv.ReadOnly = true;
