@@ -56,7 +56,7 @@ namespace GUI_POLYCAFE
 
         private void MainFrom_Load(object sender, EventArgs e)
         {
-
+            //VaiTroNhanVien();
         }
         //private void CheckPermission()
         //{
@@ -132,6 +132,11 @@ namespace GUI_POLYCAFE
         private void qUẢNLÝTHẺLƯUĐỘNGToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new frmtheluudong());
+        }
+
+        private void qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

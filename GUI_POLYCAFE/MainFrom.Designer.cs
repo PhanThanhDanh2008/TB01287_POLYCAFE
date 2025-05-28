@@ -191,6 +191,7 @@
             this.qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem.Name = "qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem";
             this.qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem.Size = new System.Drawing.Size(337, 26);
             this.qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem.Text = "QUẢN LÝ PHIẾU BÁN HÀNG";
+            this.qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem.Click += new System.EventHandler(this.qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem_Click);
             // 
             // qUẢNLÝCHITIẾTPHIẾUBÁNHÀNGToolStripMenuItem
             // 
