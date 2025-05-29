@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DALLoaiSanPham.cs" />
+    <Compile Include="DALSANPHAM.CS" />
     <Compile Include="DALTHELUUDONG.cs" />
     <Compile Include="DAL_NHANVIEN.cs" />
     <Compile Include="DBUtil.cs" />
