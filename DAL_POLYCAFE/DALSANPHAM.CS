@@ -11,7 +11,7 @@ namespace DAL_POLYCAFE
 {
     public class DALSANPHAM
     {
-        public List<SanPham> SelectBySql (string sql, List<object> args, CommandType cmdType = CommandType.Text)
+        public List<SanPham> SelectBySql(string sql, List<object> args, CommandType cmdType = CommandType.Text)
         {
             List<SanPham> list = new List<SanPham>();
             try
@@ -139,6 +139,52 @@ namespace DAL_POLYCAFE
             }
 
             return $"{prefix}001";
+        }
+        public List<SanPham> TimKiemSanPham(string maSP = "", string tenSP = "", string maLoai = "", int trangThai = -1)
+        {
+            try
+            {
+                string sql = @"SELECT MaSanPham, TenSanPham, DonGia, LoaiSanPham.MaLoai, HinhAnh, TrangThai, TenLoai 
+                       FROM SanPham 
+                       INNER JOIN LoaiSanPham ON SanPham.MaLoai = LoaiSanPham.MaLoai 
+                       WHERE 1=1";
+                List<object> thamSo = new List<object>();
+                int paramIndex = 0;
+
+                if (!string.IsNullOrEmpty(maSP))
+                {
+                    sql += " AND MaSanPham = @" + paramIndex;
+                    thamSo.Add(maSP);
+                    paramIndex++;
+                }
+
+                if (!string.IsNullOrEmpty(tenSP))
+                {
+                    sql += " AND TenSanPham LIKE '%' + @" + paramIndex + " + '%'";
+                    thamSo.Add(tenSP);
+                    paramIndex++;
+                }
+
+                if (!string.IsNullOrEmpty(maLoai))
+                {
+                    sql += " AND LoaiSanPham.MaLoai = @" + paramIndex;
+                    thamSo.Add(maLoai);
+                    paramIndex++;
+                }
+
+                if (trangThai > -1)
+                {
+                    sql += " AND TrangThai = @" + paramIndex;
+                    thamSo.Add(trangThai);
+                    paramIndex++;
+                }
+
+                return SelectBySql(sql, thamSo);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Lỗi khi tìm kiếm sản phẩm: " + e.Message);
+            }
         }
     }
 }

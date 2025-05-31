@@ -126,6 +126,7 @@
             this.qUẢNLÝSẢNPHẨMToolStripMenuItem.Name = "qUẢNLÝSẢNPHẨMToolStripMenuItem";
             this.qUẢNLÝSẢNPHẨMToolStripMenuItem.Size = new System.Drawing.Size(266, 26);
             this.qUẢNLÝSẢNPHẨMToolStripMenuItem.Text = "QUẢN LÝ SẢN PHẨM";
+            this.qUẢNLÝSẢNPHẨMToolStripMenuItem.Click += new System.EventHandler(this.qUẢNLÝSẢNPHẨMToolStripMenuItem_Click);
             // 
             // qUẢNLÝLOẠISẢNPHẨMToolStripMenuItem
             // 

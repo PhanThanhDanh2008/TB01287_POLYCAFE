@@ -138,5 +138,10 @@ namespace GUI_POLYCAFE
         {
 
         }
+
+        private void qUẢNLÝSẢNPHẨMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmquanlysanpham());
+        }
     }
 }

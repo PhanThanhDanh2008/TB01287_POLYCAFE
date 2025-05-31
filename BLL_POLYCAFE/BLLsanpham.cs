@@ -79,5 +79,16 @@ namespace BLL_POLYCAFE
                 return "Lỗi: " + ex.Message;
             }
         }
+        public List<SanPham> TimKiemSanPham(string maSP = "", string tenSP = "", string maLoai = "", int trangThai = -1)
+        {
+            try
+            {
+                return dalSanpham.TimKiemSanPham(maSP, tenSP, maLoai, trangThai);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi tìm kiếm sản phẩm: " + ex.Message);
+            }
+        }
     }
 }

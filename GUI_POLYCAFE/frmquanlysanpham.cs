@@ -284,5 +284,45 @@ namespace GUI_POLYCAFE
             //label1.Left = (this.ClientSize.Width - label1.Width) / 2;
             //label1.Top = 10;
         }
+
+        private void btntimkiem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string maSP = txtmasp.Text.Trim(); // Lấy mã sản phẩm từ txtmasp
+                string tenSP = txttimkiem.Text.Trim(); // Lấy tên sản phẩm từ txttimkiem
+                string maLoai = cbloaisp.SelectedValue?.ToString(); // Lấy loại sản phẩm
+                int trangThai = rdbdangban.Checked ? 1 : (rdbngungban.Checked ? 0 : -1); // Lấy trạng thái
+
+                // Kiểm tra nếu không nhập bất kỳ tiêu chí nào
+                if (string.IsNullOrEmpty(maSP) && string.IsNullOrEmpty(tenSP) && string.IsNullOrEmpty(maLoai) && trangThai == -1)
+                {
+                    MessageBox.Show("Vui lòng nhập ít nhất một tiêu chí tìm kiếm (mã, tên, loại, hoặc trạng thái)!",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                BLLsanpham bUSSanPham = new BLLsanpham();
+                List<SanPham> lstSP = bUSSanPham.TimKiemSanPham(maSP, tenSP, maLoai, trangThai);
+
+                dgvsanpham.DataSource = null;
+                dgvsanpham.DataSource = lstSP;
+
+                if (lstSP.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy sản phẩm nào phù hợp với tiêu chí!",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"Tìm thấy {lstSP.Count} sản phẩm!",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tìm kiếm: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
