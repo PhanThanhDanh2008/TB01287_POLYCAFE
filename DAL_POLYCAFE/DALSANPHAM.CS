@@ -151,18 +151,30 @@ namespace DAL_POLYCAFE
                 List<object> thamSo = new List<object>();
                 int paramIndex = 0;
 
-                if (!string.IsNullOrEmpty(maSP))
+                // Kết hợp MaSanPham và TenSanPham với điều kiện OR
+                if (!string.IsNullOrEmpty(maSP) || !string.IsNullOrEmpty(tenSP))
                 {
-                    sql += " AND MaSanPham = @" + paramIndex;
-                    thamSo.Add(maSP);
-                    paramIndex++;
-                }
+                    sql += " AND (";
+                    bool hasPreviousCondition = false;
 
-                if (!string.IsNullOrEmpty(tenSP))
-                {
-                    sql += " AND TenSanPham LIKE '%' + @" + paramIndex + " + '%'";
-                    thamSo.Add(tenSP);
-                    paramIndex++;
+                    if (!string.IsNullOrEmpty(maSP))
+                    {
+                        sql += " MaSanPham = @" + paramIndex;
+                        thamSo.Add(maSP);
+                        paramIndex++;
+                        hasPreviousCondition = true;
+                    }
+
+                    if (!string.IsNullOrEmpty(tenSP))
+                    {
+                        if (hasPreviousCondition)
+                            sql += " OR";
+                        sql += " TenSanPham LIKE '%' + @" + paramIndex + " + '%'";
+                        thamSo.Add(tenSP);
+                        paramIndex++;
+                    }
+
+                    sql += ")";
                 }
 
                 if (!string.IsNullOrEmpty(maLoai))

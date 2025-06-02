@@ -102,6 +102,12 @@ namespace DAL_POLYCAFE
                 throw;
             }
         }
+        public List<LoaiSanPham> SearchLoaiSanPham(string searchText)
+        {
+            string sql = "SELECT * FROM LoaiSanPham WHERE TenLoai LIKE @0";
+            List<object> args = new List<object> { $"%{searchText}%" };
+            return SelectBySql(sql, args);
+        }
     }
 }
 

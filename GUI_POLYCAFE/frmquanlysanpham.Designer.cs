@@ -28,24 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.btnlammoi = new Guna.UI2.WinForms.Guna2Button();
-            this.btnsua = new Guna.UI2.WinForms.Guna2Button();
-            this.btnxoa = new Guna.UI2.WinForms.Guna2Button();
-            this.btnthem = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnchonanh = new Guna.UI2.WinForms.Guna2Button();
-            this.pbHinhAnh = new Guna.UI2.WinForms.Guna2PictureBox();
             this.rdbngungban = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rdbdangban = new Guna.UI2.WinForms.Guna2RadioButton();
             this.cbloaisp = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -56,12 +50,18 @@
             this.lblquanlysanpham = new System.Windows.Forms.Label();
             this.txttimkiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.btntimkiem = new Guna.UI2.WinForms.Guna2Button();
+            this.btnlammoi = new Guna.UI2.WinForms.Guna2Button();
+            this.btnsua = new Guna.UI2.WinForms.Guna2Button();
+            this.btnxoa = new Guna.UI2.WinForms.Guna2Button();
+            this.btnthem = new Guna.UI2.WinForms.Guna2Button();
+            this.btnchonanh = new Guna.UI2.WinForms.Guna2Button();
+            this.pbHinhAnh = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2CustomGradientPanel1.SuspendLayout();
             this.guna2CustomGradientPanel2.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHinhAnh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsanpham)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHinhAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2CustomGradientPanel1
@@ -109,102 +109,6 @@
             this.guna2GroupBox2.TabIndex = 1;
             this.guna2GroupBox2.Text = "CHỨC NĂNG";
             this.guna2GroupBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnlammoi
-            // 
-            this.btnlammoi.AutoRoundedCorners = true;
-            this.btnlammoi.BackColor = System.Drawing.Color.Transparent;
-            this.btnlammoi.BorderRadius = 22;
-            this.btnlammoi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnlammoi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnlammoi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnlammoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnlammoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnlammoi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnlammoi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlammoi.ForeColor = System.Drawing.Color.White;
-            this.btnlammoi.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.btnlammoi.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnlammoi.HoverState.FillColor = System.Drawing.Color.Navy;
-            this.btnlammoi.Image = global::GUI_POLYCAFE.Properties.Resources.refresh;
-            this.btnlammoi.Location = new System.Drawing.Point(422, 78);
-            this.btnlammoi.Name = "btnlammoi";
-            this.btnlammoi.Size = new System.Drawing.Size(132, 47);
-            this.btnlammoi.TabIndex = 3;
-            this.btnlammoi.Text = "LÀM MỚI";
-            this.btnlammoi.Click += new System.EventHandler(this.btnlammoi_Click);
-            // 
-            // btnsua
-            // 
-            this.btnsua.AutoRoundedCorners = true;
-            this.btnsua.BackColor = System.Drawing.Color.Transparent;
-            this.btnsua.BorderRadius = 22;
-            this.btnsua.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnsua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnsua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnsua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnsua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnsua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnsua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnsua.ForeColor = System.Drawing.Color.White;
-            this.btnsua.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.btnsua.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnsua.HoverState.FillColor = System.Drawing.Color.Navy;
-            this.btnsua.Image = global::GUI_POLYCAFE.Properties.Resources.service;
-            this.btnsua.Location = new System.Drawing.Point(282, 78);
-            this.btnsua.Name = "btnsua";
-            this.btnsua.Size = new System.Drawing.Size(122, 47);
-            this.btnsua.TabIndex = 2;
-            this.btnsua.Text = "SỬA";
-            this.btnsua.Click += new System.EventHandler(this.btnsua_Click);
-            // 
-            // btnxoa
-            // 
-            this.btnxoa.AutoRoundedCorners = true;
-            this.btnxoa.BackColor = System.Drawing.Color.Transparent;
-            this.btnxoa.BorderRadius = 22;
-            this.btnxoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnxoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnxoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnxoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnxoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnxoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnxoa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnxoa.ForeColor = System.Drawing.Color.White;
-            this.btnxoa.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.btnxoa.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnxoa.HoverState.FillColor = System.Drawing.Color.Navy;
-            this.btnxoa.Image = global::GUI_POLYCAFE.Properties.Resources.out_of_stock;
-            this.btnxoa.Location = new System.Drawing.Point(143, 78);
-            this.btnxoa.Name = "btnxoa";
-            this.btnxoa.Size = new System.Drawing.Size(117, 47);
-            this.btnxoa.TabIndex = 1;
-            this.btnxoa.Text = "XÓA";
-            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
-            // 
-            // btnthem
-            // 
-            this.btnthem.AutoRoundedCorners = true;
-            this.btnthem.BackColor = System.Drawing.Color.Transparent;
-            this.btnthem.BorderRadius = 22;
-            this.btnthem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnthem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnthem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnthem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnthem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnthem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnthem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnthem.ForeColor = System.Drawing.Color.White;
-            this.btnthem.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.btnthem.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnthem.HoverState.FillColor = System.Drawing.Color.Navy;
-            this.btnthem.Image = global::GUI_POLYCAFE.Properties.Resources.add_to_cart;
-            this.btnthem.Location = new System.Drawing.Point(14, 78);
-            this.btnthem.Name = "btnthem";
-            this.btnthem.Size = new System.Drawing.Size(111, 47);
-            this.btnthem.TabIndex = 0;
-            this.btnthem.Text = "THÊM";
-            this.btnthem.Click += new System.EventHandler(this.btnthem_Click);
             // 
             // guna2GroupBox1
             // 
@@ -292,39 +196,6 @@
             this.label1.Size = new System.Drawing.Size(134, 23);
             this.label1.TabIndex = 8;
             this.label1.Text = "MÃ SẢN PHẨM";
-            // 
-            // btnchonanh
-            // 
-            this.btnchonanh.AutoRoundedCorners = true;
-            this.btnchonanh.BackColor = System.Drawing.Color.Transparent;
-            this.btnchonanh.BorderRadius = 14;
-            this.btnchonanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnchonanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnchonanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnchonanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnchonanh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btnchonanh.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnchonanh.ForeColor = System.Drawing.Color.Black;
-            this.btnchonanh.HoverState.BorderColor = System.Drawing.Color.Lime;
-            this.btnchonanh.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnchonanh.HoverState.FillColor = System.Drawing.Color.Lime;
-            this.btnchonanh.Image = global::GUI_POLYCAFE.Properties.Resources.picture;
-            this.btnchonanh.Location = new System.Drawing.Point(190, 506);
-            this.btnchonanh.Name = "btnchonanh";
-            this.btnchonanh.Size = new System.Drawing.Size(171, 30);
-            this.btnchonanh.TabIndex = 7;
-            this.btnchonanh.Text = "CHỌN ẢNH";
-            // 
-            // pbHinhAnh
-            // 
-            this.pbHinhAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbHinhAnh.ImageRotate = 0F;
-            this.pbHinhAnh.Location = new System.Drawing.Point(192, 382);
-            this.pbHinhAnh.Name = "pbHinhAnh";
-            this.pbHinhAnh.Size = new System.Drawing.Size(169, 118);
-            this.pbHinhAnh.TabIndex = 6;
-            this.pbHinhAnh.TabStop = false;
-            this.pbHinhAnh.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // rdbngungban
             // 
@@ -464,27 +335,27 @@
             // 
             // dgvsanpham
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.dgvsanpham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dgvsanpham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvsanpham.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvsanpham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvsanpham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvsanpham.ColumnHeadersHeight = 4;
             this.dgvsanpham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvsanpham.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvsanpham.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvsanpham.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvsanpham.Location = new System.Drawing.Point(588, 40);
             this.dgvsanpham.Name = "dgvsanpham";
@@ -543,7 +414,7 @@
             this.txttimkiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txttimkiem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txttimkiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txttimkiem.Location = new System.Drawing.Point(941, 0);
+            this.txttimkiem.Location = new System.Drawing.Point(878, 0);
             this.txttimkiem.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txttimkiem.Name = "txttimkiem";
             this.txttimkiem.PasswordChar = '\0';
@@ -562,14 +433,146 @@
             this.btntimkiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btntimkiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btntimkiem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btntimkiem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btntimkiem.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btntimkiem.ForeColor = System.Drawing.Color.White;
-            this.btntimkiem.Location = new System.Drawing.Point(1438, 0);
+            this.btntimkiem.Image = global::GUI_POLYCAFE.Properties.Resources.loupe;
+            this.btntimkiem.Location = new System.Drawing.Point(1396, 0);
             this.btntimkiem.Name = "btntimkiem";
-            this.btntimkiem.Size = new System.Drawing.Size(97, 41);
+            this.btntimkiem.Size = new System.Drawing.Size(139, 41);
             this.btntimkiem.TabIndex = 4;
             this.btntimkiem.Text = "tìm kiếm";
             this.btntimkiem.Click += new System.EventHandler(this.btntimkiem_Click);
+            // 
+            // btnlammoi
+            // 
+            this.btnlammoi.AutoRoundedCorners = true;
+            this.btnlammoi.BackColor = System.Drawing.Color.Transparent;
+            this.btnlammoi.BorderRadius = 22;
+            this.btnlammoi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnlammoi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnlammoi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnlammoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnlammoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnlammoi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnlammoi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlammoi.ForeColor = System.Drawing.Color.White;
+            this.btnlammoi.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btnlammoi.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnlammoi.HoverState.FillColor = System.Drawing.Color.Navy;
+            this.btnlammoi.Image = global::GUI_POLYCAFE.Properties.Resources.refresh;
+            this.btnlammoi.Location = new System.Drawing.Point(422, 78);
+            this.btnlammoi.Name = "btnlammoi";
+            this.btnlammoi.Size = new System.Drawing.Size(132, 47);
+            this.btnlammoi.TabIndex = 3;
+            this.btnlammoi.Text = "LÀM MỚI";
+            this.btnlammoi.Click += new System.EventHandler(this.btnlammoi_Click);
+            // 
+            // btnsua
+            // 
+            this.btnsua.AutoRoundedCorners = true;
+            this.btnsua.BackColor = System.Drawing.Color.Transparent;
+            this.btnsua.BorderRadius = 22;
+            this.btnsua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsua.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnsua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnsua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnsua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnsua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnsua.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnsua.ForeColor = System.Drawing.Color.White;
+            this.btnsua.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btnsua.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnsua.HoverState.FillColor = System.Drawing.Color.Navy;
+            this.btnsua.Image = global::GUI_POLYCAFE.Properties.Resources.service;
+            this.btnsua.Location = new System.Drawing.Point(282, 78);
+            this.btnsua.Name = "btnsua";
+            this.btnsua.Size = new System.Drawing.Size(122, 47);
+            this.btnsua.TabIndex = 2;
+            this.btnsua.Text = "SỬA";
+            this.btnsua.Click += new System.EventHandler(this.btnsua_Click);
+            // 
+            // btnxoa
+            // 
+            this.btnxoa.AutoRoundedCorners = true;
+            this.btnxoa.BackColor = System.Drawing.Color.Transparent;
+            this.btnxoa.BorderRadius = 22;
+            this.btnxoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnxoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnxoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnxoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnxoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnxoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnxoa.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnxoa.ForeColor = System.Drawing.Color.White;
+            this.btnxoa.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btnxoa.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnxoa.HoverState.FillColor = System.Drawing.Color.Navy;
+            this.btnxoa.Image = global::GUI_POLYCAFE.Properties.Resources.out_of_stock;
+            this.btnxoa.Location = new System.Drawing.Point(143, 78);
+            this.btnxoa.Name = "btnxoa";
+            this.btnxoa.Size = new System.Drawing.Size(117, 47);
+            this.btnxoa.TabIndex = 1;
+            this.btnxoa.Text = "XÓA";
+            this.btnxoa.Click += new System.EventHandler(this.btnxoa_Click);
+            // 
+            // btnthem
+            // 
+            this.btnthem.AutoRoundedCorners = true;
+            this.btnthem.BackColor = System.Drawing.Color.Transparent;
+            this.btnthem.BorderRadius = 22;
+            this.btnthem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnthem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnthem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnthem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnthem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnthem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnthem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnthem.ForeColor = System.Drawing.Color.White;
+            this.btnthem.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btnthem.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnthem.HoverState.FillColor = System.Drawing.Color.Navy;
+            this.btnthem.Image = global::GUI_POLYCAFE.Properties.Resources.add_to_cart;
+            this.btnthem.Location = new System.Drawing.Point(14, 78);
+            this.btnthem.Name = "btnthem";
+            this.btnthem.Size = new System.Drawing.Size(111, 47);
+            this.btnthem.TabIndex = 0;
+            this.btnthem.Text = "THÊM";
+            this.btnthem.Click += new System.EventHandler(this.btnthem_Click);
+            // 
+            // btnchonanh
+            // 
+            this.btnchonanh.AutoRoundedCorners = true;
+            this.btnchonanh.BackColor = System.Drawing.Color.Transparent;
+            this.btnchonanh.BorderRadius = 14;
+            this.btnchonanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnchonanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnchonanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnchonanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnchonanh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnchonanh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnchonanh.ForeColor = System.Drawing.Color.Black;
+            this.btnchonanh.HoverState.BorderColor = System.Drawing.Color.Lime;
+            this.btnchonanh.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnchonanh.HoverState.FillColor = System.Drawing.Color.Lime;
+            this.btnchonanh.Image = global::GUI_POLYCAFE.Properties.Resources.picture;
+            this.btnchonanh.Location = new System.Drawing.Point(190, 506);
+            this.btnchonanh.Name = "btnchonanh";
+            this.btnchonanh.Size = new System.Drawing.Size(171, 30);
+            this.btnchonanh.TabIndex = 7;
+            this.btnchonanh.Text = "CHỌN ẢNH";
+            this.btnchonanh.Click += new System.EventHandler(this.btnchonanh_Click);
+            // 
+            // pbHinhAnh
+            // 
+            this.pbHinhAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbHinhAnh.ImageRotate = 0F;
+            this.pbHinhAnh.Location = new System.Drawing.Point(192, 382);
+            this.pbHinhAnh.Name = "pbHinhAnh";
+            this.pbHinhAnh.Size = new System.Drawing.Size(169, 118);
+            this.pbHinhAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbHinhAnh.TabIndex = 6;
+            this.pbHinhAnh.TabStop = false;
+            this.pbHinhAnh.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // frmquanlysanpham
             // 
@@ -588,8 +591,8 @@
             this.guna2GroupBox2.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbHinhAnh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvsanpham)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbHinhAnh)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -70,6 +70,12 @@
     <Compile Include="frmNhanVien.Designer.cs">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmquanlyloaisanpham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmquanlyloaisanpham.Designer.cs">
+      <DependentUpon>frmquanlyloaisanpham.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmquanlyphieubanhang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhanVien.resx">
       <DependentUpon>frmNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmquanlyloaisanpham.resx">
+      <DependentUpon>frmquanlyloaisanpham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmquanlyphieubanhang.resx">
       <DependentUpon>frmquanlyphieubanhang.cs</DependentUpon>
@@ -202,6 +211,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loupe.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

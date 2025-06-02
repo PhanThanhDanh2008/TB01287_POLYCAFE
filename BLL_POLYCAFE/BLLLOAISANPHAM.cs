@@ -72,5 +72,16 @@ namespace BLL_POLYCAFE
                 return "Lỗi: " + ex.Message;
             }
         }
+        public List<LoaiSanPham> SearchLoaiSanPham(string searchText)
+        {
+            try
+            {
+                return dalLoaiSanPham.SearchLoaiSanPham(searchText);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi tìm kiếm loại sản phẩm: " + ex.Message);
+            }
+        }
     }
 }
