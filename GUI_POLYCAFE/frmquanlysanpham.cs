@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL_POLYCAFE;
 using DTO_POLYCAFE;
+using GUI_POLYCAFE.Helper;
 
 namespace GUI_POLYCAFE
 {
@@ -183,6 +184,8 @@ namespace GUI_POLYCAFE
                     }
                 }
 
+
+                string savePath = ImageUtil.SaveImage(pbHinhAnh.Image, "Uploads");
                 // Tạo đối tượng sản phẩm
                 SanPham sp = new SanPham
                 {
