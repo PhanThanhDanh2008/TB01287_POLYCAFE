@@ -59,6 +59,9 @@ namespace GUI_POLYCAFE.Helper
                 return Image.FromFile(imagePath);
             }
 
+
+
+            // Nếu không tìm thấy hình ảnh, trả về hình ảnh mặc định
             return Properties.Resources.default_image;
         }
     }
