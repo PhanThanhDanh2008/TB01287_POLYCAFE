@@ -121,5 +121,259 @@ namespace GUI_POLYCAFE
             LoadDanhSachPhieu("");
         }
 
+        private void dgrDanhSachPhieu_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string maPhieu = dgrDanhSachPhieu.Rows[e.RowIndex].Cells["MaPhieu"].Value.ToString();
+            string maThe = dgrDanhSachPhieu.Rows[e.RowIndex].Cells["MaThe"].Value.ToString();
+            string maNV = dgrDanhSachPhieu.Rows[e.RowIndex].Cells["MaNhanVien"].Value.ToString();
+            PhieuBanHang phieu = (PhieuBanHang)dgrDanhSachPhieu.CurrentRow.DataBoundItem;
+            TheLuuDong the = new TheLuuDong();
+            NHANVIEN nv = new NHANVIEN();
+            foreach (TheLuuDong item in cboMaTheLuuDong.Items)
+            {
+                if (item.MaThe == maThe)
+                {
+                    the = item;
+                    break;
+                }
+            }
+
+            foreach (NHANVIEN item in cboNhanVienBH.Items)
+            {
+                if (item.MaNhanVien == maNV)
+                {
+                    nv = item;
+                    break;
+                }
+            }
+            frmChiTietPhieu frmChiTiet = new frmChiTietPhieu(the, phieu, nv);
+            frmChiTiet.ShowDialog();
+        }
+
+        private void dgrDanhSachPhieu_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            isLoadingTheLuuDongData = true;
+            DataGridViewRow row = dgrDanhSachPhieu.Rows[e.RowIndex];
+            cboMaTheLuuDong.SelectedValue = row.Cells["MaThe"].Value.ToString();
+            cboNhanVienBH.SelectedValue = row.Cells["MaNhanVien"].Value.ToString();
+            dtpNgayTao.Text = row.Cells["NgayTao"].Value.ToString();
+            txtMaPhieu.Text = row.Cells["MaPhieu"].Value.ToString();
+
+            bool trangThai = Convert.ToBoolean(row.Cells["TrangThai"].Value);
+            if (trangThai)
+            {
+                rdbPaid.Checked = true;
+                rdbPaid.Enabled = false;
+                rdbConfirmation.Enabled = false;
+                cboNhanVienBH.Enabled = false;
+                dtpNgayTao.Enabled = false;
+                btnThemPhieu.Enabled = false;
+                btnSuaPhieu.Enabled = false;
+                btnXoaPhieu.Enabled = false;
+
+            }
+            else
+            {
+                rdbPaid.Checked = false;
+                rdbPaid.Enabled = true;
+                rdbConfirmation.Enabled = true;
+                cboNhanVienBH.Enabled = true;
+                rdbConfirmation.Checked = true;
+                rdbConfirmation.Enabled = true;
+                dtpNgayTao.Enabled = true;
+                // Bật nút "Sửa"
+                btnThemPhieu.Enabled = false;
+                btnSuaPhieu.Enabled = true;
+                btnXoaPhieu.Enabled = true;
+            }
+        }
+
+        private void dgrDanhSachPhieu_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            isLoadingTheLuuDongData = true;
+            DataGridViewRow row = dgrDanhSachPhieu.Rows[e.RowIndex];
+            cboMaTheLuuDong.SelectedValue = row.Cells["MaThe"].Value.ToString();
+            cboNhanVienBH.SelectedValue = row.Cells["MaNhanVien"].Value.ToString();
+            dtpNgayTao.Text = row.Cells["NgayTao"].Value.ToString();
+            txtMaPhieu.Text = row.Cells["MaPhieu"].Value.ToString();
+
+            bool trangThai = Convert.ToBoolean(row.Cells["TrangThai"].Value);
+            if (trangThai)
+            {
+                rdbPaid.Checked = true;
+                rdbPaid.Enabled = false;
+                rdbConfirmation.Enabled = false;
+                cboNhanVienBH.Enabled = false;
+                dtpNgayTao.Enabled = false;
+                btnThemPhieu.Enabled = false;
+                btnSuaPhieu.Enabled = false;
+                btnXoaPhieu.Enabled = false;
+
+            }
+            else
+            {
+                rdbPaid.Checked = false;
+                rdbPaid.Enabled = true;
+                rdbConfirmation.Enabled = true;
+                cboNhanVienBH.Enabled = true;
+                rdbConfirmation.Checked = true;
+                rdbConfirmation.Enabled = true;
+                dtpNgayTao.Enabled = true;
+                // Bật nút "Sửa"
+                btnThemPhieu.Enabled = false;
+                btnSuaPhieu.Enabled = true;
+                btnXoaPhieu.Enabled = true;
+            }
+        }
+
+        private void btnThemPhieu_Click(object sender, EventArgs e)
+        {
+            string maThe = cboMaTheLuuDong.SelectedValue?.ToString();
+            string maNhanVien = cboNhanVienBH.SelectedValue?.ToString();
+            DateTime ngayTao = dtpNgayTao.Value;
+
+            bool trangThai;
+            if (rdbConfirmation.Checked)
+            {
+                trangThai = false;
+            }
+            else
+            {
+                trangThai = true;
+            }
+            if (string.IsNullOrEmpty(maNhanVien) || string.IsNullOrEmpty(maThe))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin phiếu bán hàng.");
+                return;
+            }
+
+            PhieuBanHang theLuuDong = new PhieuBanHang
+            {
+                MaThe = maThe,
+                MaNhanVien = maNhanVien,
+                NgayTao = ngayTao,
+                TrangThai = trangThai
+            };
+            BLLPhieuBanHang bus = new BLLPhieuBanHang();
+            string result = bus.InsertPhieuBanHang(theLuuDong);
+
+            if (string.IsNullOrEmpty(result))
+            {
+                MessageBox.Show("Cập nhật thông tin thành công");
+                ClearForm(maThe);
+                LoadTheLuuDong();
+                LoadNhanVien();
+                LoadDanhSachPhieu("");
+                cboMaTheLuuDong.SelectedValue = maThe;
+            }
+            else
+            {
+                MessageBox.Show(result);
+            }
+        }
+
+        private void btnSuaPhieu_Click(object sender, EventArgs e)
+        {
+            string maThe = cboMaTheLuuDong.SelectedValue?.ToString();
+            string maPhieu = txtMaPhieu.Text;
+            string maNhanVien = cboNhanVienBH.SelectedValue?.ToString();
+            DateTime ngayTao = dtpNgayTao.Value;
+
+            bool trangThai;
+            if (rdbConfirmation.Checked)
+            {
+                trangThai = false;
+            }
+            else
+
+
+            {
+                trangThai = true;
+            }
+            if (string.IsNullOrEmpty(maNhanVien) || string.IsNullOrEmpty(maThe))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin phiếu bán hàng.");
+                return;
+            }
+
+            PhieuBanHang theLuuDong = new PhieuBanHang
+            {
+                MaPhieu = maPhieu,
+                MaThe = maThe,
+                MaNhanVien = maNhanVien,
+                NgayTao = ngayTao,
+                TrangThai = trangThai
+            };
+            BLLPhieuBanHang bus = new BLLPhieuBanHang(); 
+            string result = bus.UpdatePhieuBanHang(theLuuDong);
+
+            if (string.IsNullOrEmpty(result))
+            {
+                MessageBox.Show("Cập nhật thông tin thành công");
+                ClearForm(maThe);
+                LoadTheLuuDong();
+                LoadNhanVien();
+                LoadDanhSachPhieu("");
+                cboMaTheLuuDong.SelectedValue = maThe;
+            }
+            else
+            {
+                MessageBox.Show(result);
+            }
+        }
+
+        private void btnXoaPhieu_Click(object sender, EventArgs e)
+        {
+            string maPhieu = txtMaPhieu.Text.Trim();
+            string maThe = cboMaTheLuuDong.SelectedValue?.ToString();
+            string chuSoHuu = cboMaTheLuuDong.Text;
+            if (string.IsNullOrEmpty(maPhieu))
+            {
+                if (dgrDanhSachPhieu.SelectedRows.Count > 0)
+                {
+                    DataGridViewRow selectedRow = dgrDanhSachPhieu.SelectedRows[0];
+                    maPhieu = selectedRow.Cells["MaPhieu"].Value.ToString();
+                    maThe = selectedRow.Cells["MaThe"].Value.ToString();
+                    chuSoHuu = selectedRow.Cells["ChuSoHuu"].Value.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn thông tin phiếu bán hàng cần xóa xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            if (string.IsNullOrEmpty(maPhieu))
+            {
+                MessageBox.Show("Xóa không thành công.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa phiếu bán hàng {maPhieu} - {chuSoHuu}?", "Xác nhận xóa",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.Yes)
+            {
+                BLLPhieuBanHang bus = new BLLPhieuBanHang();
+                string kq = bus.DeletePhieuBanHang(maPhieu);
+
+                if (string.IsNullOrEmpty(kq))
+                {
+                    MessageBox.Show($"Xóa thông tin phiếu bán hàng {maPhieu} - {chuSoHuu} thành công!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ClearForm(maThe);
+                    LoadTheLuuDong();
+                    LoadNhanVien();
+                    LoadDanhSachPhieu("");
+
+                    cboMaTheLuuDong.SelectedValue = maThe;
+                }
+                else
+                {
+                    MessageBox.Show(kq, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
     }
 }

@@ -32,10 +32,6 @@
             this.guna2CustomGradientPanel2 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.dgrDanhSachPhieu = new System.Windows.Forms.DataGridView();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.btnlammoi = new Guna.UI2.WinForms.Guna2Button();
-            this.btnSuaPhieu = new Guna.UI2.WinForms.Guna2Button();
-            this.btnXoaPhieu = new Guna.UI2.WinForms.Guna2Button();
-            this.btnThemPhieu = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.cboMaTheLuuDong = new Guna.UI2.WinForms.Guna2ComboBox();
             this.rdbPaid = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -43,6 +39,10 @@
             this.dtpNgayTao = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.cboNhanVienBH = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtMaPhieu = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnlammoi = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSuaPhieu = new Guna.UI2.WinForms.Guna2Button();
+            this.btnXoaPhieu = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThemPhieu = new Guna.UI2.WinForms.Guna2Button();
             this.guna2CustomGradientPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgrDanhSachPhieu)).BeginInit();
             this.guna2GroupBox2.SuspendLayout();
@@ -85,6 +85,8 @@
             this.dgrDanhSachPhieu.Name = "dgrDanhSachPhieu";
             this.dgrDanhSachPhieu.Size = new System.Drawing.Size(1132, 283);
             this.dgrDanhSachPhieu.TabIndex = 5;
+            this.dgrDanhSachPhieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDanhSachPhieu_CellClick_1);
+            this.dgrDanhSachPhieu.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgrDanhSachPhieu_CellDoubleClick);
             // 
             // guna2GroupBox2
             // 
@@ -100,107 +102,6 @@
             this.guna2GroupBox2.Size = new System.Drawing.Size(323, 198);
             this.guna2GroupBox2.TabIndex = 4;
             this.guna2GroupBox2.Text = "guna2GroupBox2";
-            // 
-            // btnlammoi
-            // 
-            this.btnlammoi.AutoRoundedCorners = true;
-            this.btnlammoi.BackColor = System.Drawing.Color.Transparent;
-            this.btnlammoi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnlammoi.BorderRadius = 18;
-            this.btnlammoi.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnlammoi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnlammoi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnlammoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnlammoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnlammoi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnlammoi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnlammoi.ForeColor = System.Drawing.Color.White;
-            this.btnlammoi.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.btnlammoi.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnlammoi.HoverState.FillColor = System.Drawing.Color.Navy;
-            this.btnlammoi.Image = global::GUI_POLYCAFE.Properties.Resources.refresh;
-            this.btnlammoi.Location = new System.Drawing.Point(176, 132);
-            this.btnlammoi.Margin = new System.Windows.Forms.Padding(2);
-            this.btnlammoi.Name = "btnlammoi";
-            this.btnlammoi.Size = new System.Drawing.Size(99, 38);
-            this.btnlammoi.TabIndex = 7;
-            this.btnlammoi.Text = "LÀM MỚI";
-            this.btnlammoi.Click += new System.EventHandler(this.btnlammoi_Click);
-            // 
-            // btnSuaPhieu
-            // 
-            this.btnSuaPhieu.AutoRoundedCorners = true;
-            this.btnSuaPhieu.BackColor = System.Drawing.Color.Transparent;
-            this.btnSuaPhieu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSuaPhieu.BorderRadius = 18;
-            this.btnSuaPhieu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSuaPhieu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSuaPhieu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSuaPhieu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSuaPhieu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSuaPhieu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnSuaPhieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSuaPhieu.ForeColor = System.Drawing.Color.White;
-            this.btnSuaPhieu.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.btnSuaPhieu.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnSuaPhieu.HoverState.FillColor = System.Drawing.Color.Navy;
-            this.btnSuaPhieu.Image = global::GUI_POLYCAFE.Properties.Resources.service;
-            this.btnSuaPhieu.Location = new System.Drawing.Point(44, 132);
-            this.btnSuaPhieu.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSuaPhieu.Name = "btnSuaPhieu";
-            this.btnSuaPhieu.Size = new System.Drawing.Size(92, 38);
-            this.btnSuaPhieu.TabIndex = 6;
-            this.btnSuaPhieu.Text = "SỬA";
-            // 
-            // btnXoaPhieu
-            // 
-            this.btnXoaPhieu.AutoRoundedCorners = true;
-            this.btnXoaPhieu.BackColor = System.Drawing.Color.Transparent;
-            this.btnXoaPhieu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnXoaPhieu.BorderRadius = 18;
-            this.btnXoaPhieu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnXoaPhieu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnXoaPhieu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnXoaPhieu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnXoaPhieu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnXoaPhieu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnXoaPhieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoaPhieu.ForeColor = System.Drawing.Color.White;
-            this.btnXoaPhieu.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.btnXoaPhieu.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnXoaPhieu.HoverState.FillColor = System.Drawing.Color.Navy;
-            this.btnXoaPhieu.Image = global::GUI_POLYCAFE.Properties.Resources.out_of_stock;
-            this.btnXoaPhieu.Location = new System.Drawing.Point(187, 63);
-            this.btnXoaPhieu.Margin = new System.Windows.Forms.Padding(2);
-            this.btnXoaPhieu.Name = "btnXoaPhieu";
-            this.btnXoaPhieu.Size = new System.Drawing.Size(88, 38);
-            this.btnXoaPhieu.TabIndex = 5;
-            this.btnXoaPhieu.Text = "XÓA";
-            // 
-            // btnThemPhieu
-            // 
-            this.btnThemPhieu.AutoRoundedCorners = true;
-            this.btnThemPhieu.BackColor = System.Drawing.Color.Transparent;
-            this.btnThemPhieu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnThemPhieu.BorderRadius = 18;
-            this.btnThemPhieu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnThemPhieu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemPhieu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemPhieu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnThemPhieu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnThemPhieu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btnThemPhieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemPhieu.ForeColor = System.Drawing.Color.White;
-            this.btnThemPhieu.HoverState.BorderColor = System.Drawing.Color.Blue;
-            this.btnThemPhieu.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnThemPhieu.HoverState.FillColor = System.Drawing.Color.Navy;
-            this.btnThemPhieu.Image = global::GUI_POLYCAFE.Properties.Resources.add_to_cart;
-            this.btnThemPhieu.Location = new System.Drawing.Point(44, 63);
-            this.btnThemPhieu.Margin = new System.Windows.Forms.Padding(2);
-            this.btnThemPhieu.Name = "btnThemPhieu";
-            this.btnThemPhieu.Size = new System.Drawing.Size(83, 38);
-            this.btnThemPhieu.TabIndex = 4;
-            this.btnThemPhieu.Text = "THÊM";
             // 
             // guna2GroupBox1
             // 
@@ -343,6 +244,110 @@
             this.txtMaPhieu.SelectedText = "";
             this.txtMaPhieu.Size = new System.Drawing.Size(232, 37);
             this.txtMaPhieu.TabIndex = 1;
+            // 
+            // btnlammoi
+            // 
+            this.btnlammoi.AutoRoundedCorners = true;
+            this.btnlammoi.BackColor = System.Drawing.Color.Transparent;
+            this.btnlammoi.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnlammoi.BorderRadius = 18;
+            this.btnlammoi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnlammoi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnlammoi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnlammoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnlammoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnlammoi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnlammoi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlammoi.ForeColor = System.Drawing.Color.White;
+            this.btnlammoi.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btnlammoi.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnlammoi.HoverState.FillColor = System.Drawing.Color.Navy;
+            this.btnlammoi.Image = global::GUI_POLYCAFE.Properties.Resources.refresh;
+            this.btnlammoi.Location = new System.Drawing.Point(176, 132);
+            this.btnlammoi.Margin = new System.Windows.Forms.Padding(2);
+            this.btnlammoi.Name = "btnlammoi";
+            this.btnlammoi.Size = new System.Drawing.Size(99, 38);
+            this.btnlammoi.TabIndex = 7;
+            this.btnlammoi.Text = "LÀM MỚI";
+            this.btnlammoi.Click += new System.EventHandler(this.btnlammoi_Click);
+            // 
+            // btnSuaPhieu
+            // 
+            this.btnSuaPhieu.AutoRoundedCorners = true;
+            this.btnSuaPhieu.BackColor = System.Drawing.Color.Transparent;
+            this.btnSuaPhieu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSuaPhieu.BorderRadius = 18;
+            this.btnSuaPhieu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSuaPhieu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSuaPhieu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSuaPhieu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSuaPhieu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSuaPhieu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnSuaPhieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSuaPhieu.ForeColor = System.Drawing.Color.White;
+            this.btnSuaPhieu.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btnSuaPhieu.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnSuaPhieu.HoverState.FillColor = System.Drawing.Color.Navy;
+            this.btnSuaPhieu.Image = global::GUI_POLYCAFE.Properties.Resources.service;
+            this.btnSuaPhieu.Location = new System.Drawing.Point(44, 132);
+            this.btnSuaPhieu.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSuaPhieu.Name = "btnSuaPhieu";
+            this.btnSuaPhieu.Size = new System.Drawing.Size(92, 38);
+            this.btnSuaPhieu.TabIndex = 6;
+            this.btnSuaPhieu.Text = "SỬA";
+            this.btnSuaPhieu.Click += new System.EventHandler(this.btnSuaPhieu_Click);
+            // 
+            // btnXoaPhieu
+            // 
+            this.btnXoaPhieu.AutoRoundedCorners = true;
+            this.btnXoaPhieu.BackColor = System.Drawing.Color.Transparent;
+            this.btnXoaPhieu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnXoaPhieu.BorderRadius = 18;
+            this.btnXoaPhieu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnXoaPhieu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoaPhieu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoaPhieu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnXoaPhieu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXoaPhieu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnXoaPhieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaPhieu.ForeColor = System.Drawing.Color.White;
+            this.btnXoaPhieu.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btnXoaPhieu.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnXoaPhieu.HoverState.FillColor = System.Drawing.Color.Navy;
+            this.btnXoaPhieu.Image = global::GUI_POLYCAFE.Properties.Resources.out_of_stock;
+            this.btnXoaPhieu.Location = new System.Drawing.Point(187, 63);
+            this.btnXoaPhieu.Margin = new System.Windows.Forms.Padding(2);
+            this.btnXoaPhieu.Name = "btnXoaPhieu";
+            this.btnXoaPhieu.Size = new System.Drawing.Size(88, 38);
+            this.btnXoaPhieu.TabIndex = 5;
+            this.btnXoaPhieu.Text = "XÓA";
+            this.btnXoaPhieu.Click += new System.EventHandler(this.btnXoaPhieu_Click);
+            // 
+            // btnThemPhieu
+            // 
+            this.btnThemPhieu.AutoRoundedCorners = true;
+            this.btnThemPhieu.BackColor = System.Drawing.Color.Transparent;
+            this.btnThemPhieu.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnThemPhieu.BorderRadius = 18;
+            this.btnThemPhieu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThemPhieu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemPhieu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemPhieu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemPhieu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemPhieu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnThemPhieu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemPhieu.ForeColor = System.Drawing.Color.White;
+            this.btnThemPhieu.HoverState.BorderColor = System.Drawing.Color.Blue;
+            this.btnThemPhieu.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnThemPhieu.HoverState.FillColor = System.Drawing.Color.Navy;
+            this.btnThemPhieu.Image = global::GUI_POLYCAFE.Properties.Resources.add_to_cart;
+            this.btnThemPhieu.Location = new System.Drawing.Point(44, 63);
+            this.btnThemPhieu.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThemPhieu.Name = "btnThemPhieu";
+            this.btnThemPhieu.Size = new System.Drawing.Size(83, 38);
+            this.btnThemPhieu.TabIndex = 4;
+            this.btnThemPhieu.Text = "THÊM";
+            this.btnThemPhieu.Click += new System.EventHandler(this.btnThemPhieu_Click);
             // 
             // frmphieubanhangt
             // 

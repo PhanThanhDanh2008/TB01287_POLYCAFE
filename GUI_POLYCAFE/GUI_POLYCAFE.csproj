@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmChiTietPhieu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietPhieu.Designer.cs">
+      <DependentUpon>frmChiTietPhieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmphieubanhangt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,12 +88,6 @@
     <Compile Include="frmquanlyloaisanpham.Designer.cs">
       <DependentUpon>frmquanlyloaisanpham.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmquanlyphieubanhang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmquanlyphieubanhang.Designer.cs">
-      <DependentUpon>frmquanlyphieubanhang.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmquanlysanpham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +115,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmChiTietPhieu.resx">
+      <DependentUpon>frmChiTietPhieu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmphieubanhangt.resx">
       <DependentUpon>frmphieubanhangt.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,9 +132,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmquanlyloaisanpham.resx">
       <DependentUpon>frmquanlyloaisanpham.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmquanlyphieubanhang.resx">
-      <DependentUpon>frmquanlyphieubanhang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmquanlysanpham.resx">
       <DependentUpon>frmquanlysanpham.cs</DependentUpon>
