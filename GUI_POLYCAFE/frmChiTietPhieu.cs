@@ -48,14 +48,7 @@ namespace GUI_POLYCAFE
             lbNgayLap.Text = phieuBanHang.NgayTao.ToString("dd/MM/yyyy");
         }
 
-        private void frmChiTietPhieu_Load(object sender, EventArgs e)
-        {
-            loadThanhToan();
-            LoadInfo();
-            loadSanPham();
-            loadChiTietPhieu(phieuBanHang.MaPhieu);
-            activeTranfer();
-        }
+
 
         private void loadSanPham()
         {
@@ -253,7 +246,78 @@ namespace GUI_POLYCAFE
 
         private void frmChiTietPhieu_Load_1(object sender, EventArgs e)
         {
+            loadThanhToan();
+            LoadInfo();
+            loadSanPham();
+            loadChiTietPhieu(phieuBanHang.MaPhieu);
+            activeTranfer();
+            txtPhanTram.TextChanged += RecalculateDiscountAndTotal;
+            txtDichVu.TextChanged += RecalculateDiscountAndTotal;
+        }
+        private void RecalculateDiscountAndTotal(object sender, EventArgs e)
+        {
+            // Lấy tổng tiền đã có (giả sử đã lưu vào biến hoặc txtTong)
+            if (!decimal.TryParse(txtTong.Text, out decimal total))
+                return;
 
+            // Đọc giá trị dịch vụ
+            decimal dichVu = 0;
+            decimal.TryParse(txtDichVu.Text, out dichVu);
+
+            // Đọc phần trăm giảm giá
+            decimal phanTram = 0;
+            decimal.TryParse(txtPhanTram.Text, out phanTram);
+
+            // Tính tiền giảm
+            decimal giamGia = total * phanTram / 100;
+            txtGiamGia.Text = giamGia.ToString("N0");
+
+            // Tính thành tiền: tổng + dịch vụ – giảm giá
+            decimal thanhTien = total + dichVu - giamGia;
+            txtThanhTien.Text = thanhTien.ToString("N0");
+        }
+        BusChiTietPhieu bus = new BusChiTietPhieu();
+        private void dgrChiTiet_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var row = dgrChiTiet.Rows[e.RowIndex];
+
+            // 2) Lấy mã phiếu từ DataGridView
+            //    Giả sử cột MaPhieu có Name = "MaPhieu"
+            string maPhieu = row.Cells["MaPhieu"].Value?.ToString() ?? "";
+            if (string.IsNullOrEmpty(maPhieu))
+            {
+                MessageBox.Show("Mã phiếu không hợp lệ.");
+                return;
+            }
+
+            // 3) Gọi BLL để lấy tổng tiền
+            string tongTienStr = bus.CalculateTongTien(maPhieu);
+            // Nếu BUS trả về chuỗi lỗi, sẽ có chữ "Lỗi:" ở đầu
+            if (tongTienStr.StartsWith("Lỗi:"))
+            {
+                MessageBox.Show(tongTienStr);
+                return;
+            }
+
+            // 4) Chuyển về decimal và hiển thị
+            if (!decimal.TryParse(tongTienStr, out decimal total))
+            {
+                MessageBox.Show("Dữ liệu tổng tiền không hợp lệ.");
+                return;
+            }
+            txtTong.Text = total.ToString("N0");
+
+            // 5) Tính các phần còn lại như trước
+            decimal dichVu = 0, phanTram = 0;
+            decimal.TryParse(txtDichVu.Text, out dichVu);
+            decimal.TryParse(txtPhanTram.Text, out phanTram);
+
+            decimal giamGia = total * phanTram / 100;
+            decimal thanhTien = total + dichVu - giamGia;
+
+            txtGiamGia.Text = giamGia.ToString("N0");
+            txtThanhTien.Text = thanhTien.ToString("N0");
         }
     }
 }

@@ -36,12 +36,12 @@ namespace DAL_POLYCAFE
                 while (reader.Read())
                 {
                     ChiTietPhieu entity = new ChiTietPhieu();
-                    entity.MaChiTiet = reader.GetString(0);
-                    entity.MaPhieu = reader.GetString(1);
-                    entity.MaSanPham = reader.GetString(2);
-                    entity.TenSanPham = reader.GetString(3);
-                    entity.SoLuong = reader.GetInt32(4);
-                    entity.DonGia = reader.GetDecimal(5);
+                    entity.MaChiTiet = reader.GetString(0);     // MaChiTiet
+                    entity.MaPhieu = reader.GetString(1);       // MaPhieu
+                    entity.MaSanPham = reader.GetString(2);     // MaSanPham
+                    entity.SoLuong = reader.GetInt32(3);        // SoLuong
+                    entity.DonGia = reader.GetDecimal(4);       // DonGia
+                    entity.TenSanPham = reader.GetString(5);    // TenSanPham
                     list.Add(entity);
                 }
             }
@@ -51,7 +51,6 @@ namespace DAL_POLYCAFE
             }
             return list;
         }
-
         public List<ChiTietPhieu> selectChiTietByMaPhieu(string maPhieu)
         {
             string sql = "SELECT ct.MaChiTiet, ct.MaPhieu, ct.MaSanPham, ct.SoLuong, ct.DonGia, sp.TenSanPham " +
@@ -82,7 +81,6 @@ namespace DAL_POLYCAFE
             }
 
         }
-
         public void insertListChiTiet(List<ChiTietPhieu> lstChiTiet)
         {
             try
@@ -98,7 +96,6 @@ namespace DAL_POLYCAFE
             }
 
         }
-
         public void updateSoluong(ChiTietPhieu ct)
         {
             try
@@ -117,7 +114,6 @@ namespace DAL_POLYCAFE
             }
 
         }
-
         public void deleteChiTietPhieu(string Id)
         {
             try
@@ -133,5 +129,69 @@ namespace DAL_POLYCAFE
             }
 
         }
+        public decimal CalculateTongTien(string maPhieu)
+        {
+            decimal tongTien = 0;
+            try
+            {
+                string sql = "SELECT SUM(SoLuong * DonGia) FROM ChiTietPhieu WHERE MaPhieu = @0";
+                List<object> thamSo = new List<object>();
+                thamSo.Add(maPhieu);
+                object result = DBUtil.ScalarQuery(sql, thamSo);
+                if (result != null && result != DBNull.Value)
+                {
+                    tongTien = Convert.ToDecimal(result);
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            return tongTien;
+        }
+        public List<ChiTietPhieu> SearchChiTietBySanPham(string maPhieu, string keyword)
+        {
+            string pattern = $"%{keyword.Trim()}%";
+            string sql = @"
+                SELECT ct.MaChiTiet, ct.MaPhieu, ct.MaSanPham, ct.SoLuong, ct.DonGia, sp.TenSanPham
+                FROM ChiTietPhieu ct
+                INNER JOIN SanPham sp ON ct.MaSanPham = sp.MaSanPham
+                WHERE ct.MaPhieu = @0
+                  AND (sp.TenSanPham LIKE @1 OR ct.MaSanPham LIKE @1)";
+
+            var thamSo = new List<object> { maPhieu, pattern };
+            return SelectBySql(sql, thamSo);
+        }
+        public List<SanPham> SearchSanPham(string keyword)
+        {
+            string pattern = $"%{keyword.Trim()}%";
+            string sql = @"
+                SELECT MaSanPham, TenSanPham, DonGia, MaLoai, HinhAnh
+                FROM SanPham
+                WHERE MaSanPham LIKE @0
+                   OR TenSanPham LIKE @0";
+
+            var thamSo = new List<object> { pattern };
+
+            var list = new List<SanPham>();
+            using (SqlDataReader reader = DBUtil.Query(sql, thamSo))
+            {
+                while (reader.Read())
+                {
+                    var sp = new SanPham
+                    {
+                        MaSanPham = reader.GetString(0),
+                        TenSanPham = reader.GetString(1),
+                        DonGia = reader.GetDecimal(2),
+                        MaLoai = reader.GetString(3),
+                        HinhAnh = reader.IsDBNull(4) ? null : reader.GetString(4)
+                    };
+                    list.Add(sp);
+                }
+            }
+            return list;
+        }
+         
+
     }
 }

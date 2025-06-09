@@ -54,7 +54,7 @@
             // pnlmain
             // 
             this.pnlmain.Location = new System.Drawing.Point(0, 29);
-            this.pnlmain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlmain.Margin = new System.Windows.Forms.Padding(2);
             this.pnlmain.Name = "pnlmain";
             this.pnlmain.Size = new System.Drawing.Size(1174, 663);
             this.pnlmain.TabIndex = 2;
@@ -149,12 +149,14 @@
             this.bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem.Name = "bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem";
             this.bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem.Text = "BÁO CÁO DOANH THU SẢN PHẨM";
+            this.bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem.Click += new System.EventHandler(this.bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem_Click);
             // 
             // bÁOCÁODOANHTHUNHÂNVIÊNToolStripMenuItem
             // 
             this.bÁOCÁODOANHTHUNHÂNVIÊNToolStripMenuItem.Name = "bÁOCÁODOANHTHUNHÂNVIÊNToolStripMenuItem";
             this.bÁOCÁODOANHTHUNHÂNVIÊNToolStripMenuItem.Size = new System.Drawing.Size(265, 22);
             this.bÁOCÁODOANHTHUNHÂNVIÊNToolStripMenuItem.Text = "BÁO CÁO DOANH THU NHÂN VIÊN";
+            this.bÁOCÁODOANHTHUNHÂNVIÊNToolStripMenuItem.Click += new System.EventHandler(this.bÁOCÁODOANHTHUNHÂNVIÊNToolStripMenuItem_Click);
             // 
             // mỤCLỤCToolStripMenuItem
             // 
@@ -220,7 +222,7 @@
             this.Controls.Add(this.pnlmain);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(1190, 733);
             this.MinimumSize = new System.Drawing.Size(1190, 733);
             this.Name = "MainFrom";

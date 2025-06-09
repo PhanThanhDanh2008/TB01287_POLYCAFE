@@ -152,5 +152,15 @@ namespace GUI_POLYCAFE
         private void qUẢNLÝCHITIẾTPHIẾUBÁNHÀNGToolStripMenuItem_Click(object sender, EventArgs e)
         {
         }
+
+        private void bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmDoanhThuLoaiSP());
+        }
+
+        private void bÁOCÁODOANHTHUNHÂNVIÊNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmDoanhThuNhanVien());
+        }
     }
 }

@@ -12,9 +12,12 @@ namespace BLL_POLYCAFE
     {
         DALChiTietPhieu dalChiTietPhieu = new DALChiTietPhieu();
 
+
         public List<ChiTietPhieu> GetChiTietPhieuList(string maPhieu)
         {
-            return dalChiTietPhieu.selectChiTietByMaPhieu(maPhieu);
+            var list = dalChiTietPhieu.selectChiTietByMaPhieu(maPhieu);
+            Console.WriteLine("So dong chi tiet: " + list.Count); // In ra số dòng lấy được
+            return list;
         }
 
         public string InsertChiTietPhieu(ChiTietPhieu ct)
@@ -32,7 +35,6 @@ namespace BLL_POLYCAFE
             }
             catch (Exception ex)
             {
-                //return "Thêm mới không thành công.";
                 return "Lỗi: " + ex.Message;
             }
         }
@@ -51,7 +53,6 @@ namespace BLL_POLYCAFE
             }
             catch (Exception ex)
             {
-                //return "Cập nhật không thành công.";
                 return "Lỗi: " + ex.Message;
             }
         }
@@ -70,9 +71,36 @@ namespace BLL_POLYCAFE
             }
             catch (Exception ex)
             {
-                //return "Xóa không thành công.";
                 return "Lỗi: " + ex.Message;
             }
+        }
+
+        // Hàm mới: Tính tổng tiền của một phiếu bán hàng
+        public string CalculateTongTien(string maPhieu)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(maPhieu))
+                {
+                    return "Mã phiếu không hợp lệ.";
+                }
+
+                decimal tongTien = dalChiTietPhieu.CalculateTongTien(maPhieu);
+                return tongTien.ToString(); // Trả về tổng tiền dưới dạng chuỗi
+            }
+            catch (Exception ex)
+            {
+                return "Lỗi: " + ex.Message;
+            }
+        }
+        public List<ChiTietPhieu> SearchChiTietBySanPham(string maPhieu, string keyword)
+        {
+            return dalChiTietPhieu.SearchChiTietBySanPham(maPhieu, keyword);
+        }
+
+        public List<SanPham> SearchSanPham(string keyword)
+        {
+            return dalChiTietPhieu.SearchSanPham(keyword);
         }
     }
 }

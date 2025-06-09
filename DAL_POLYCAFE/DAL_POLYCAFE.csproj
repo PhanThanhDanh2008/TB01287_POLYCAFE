@@ -46,6 +46,7 @@
     <Compile Include="DALPhieuBanHang.cs" />
     <Compile Include="DALSANPHAM.CS" />
     <Compile Include="DALTHELUUDONG.cs" />
+    <Compile Include="DALThongKe.cs" />
     <Compile Include="DAL_NHANVIEN.cs" />
     <Compile Include="DBUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

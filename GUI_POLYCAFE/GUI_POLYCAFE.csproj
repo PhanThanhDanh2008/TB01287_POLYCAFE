@@ -58,6 +58,18 @@
     <Compile Include="frmChiTietPhieu.Designer.cs">
       <DependentUpon>frmChiTietPhieu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDoanhThuLoaiSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoanhThuLoaiSP.Designer.cs">
+      <DependentUpon>frmDoanhThuLoaiSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDoanhThuNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDoanhThuNhanVien.Designer.cs">
+      <DependentUpon>frmDoanhThuNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmphieubanhangt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +129,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmChiTietPhieu.resx">
       <DependentUpon>frmChiTietPhieu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoanhThuLoaiSP.resx">
+      <DependentUpon>frmDoanhThuLoaiSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDoanhThuNhanVien.resx">
+      <DependentUpon>frmDoanhThuNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmphieubanhangt.resx">
       <DependentUpon>frmphieubanhangt.cs</DependentUpon>
