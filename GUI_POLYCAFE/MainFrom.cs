@@ -31,7 +31,7 @@ namespace GUI_POLYCAFE
 
         private void btnthoatmain_Click(object sender, EventArgs e)
         {
-                        DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 Application.Exit();
@@ -68,7 +68,7 @@ namespace GUI_POLYCAFE
         //        mỤCLỤCToolStripMenuItem.Visible = true;
         //        bÁOCÁOToolStripMenuItem.Visible = true;
 
-              
+
         //        if (AuthUtil.user.VaiTro == false)
         //        {
         //            VaiTroNhanVien();
@@ -115,7 +115,7 @@ namespace GUI_POLYCAFE
 
         private void toolStripTXTTIEMKIEM_Click(object sender, EventArgs e)
         {
-    
+
 
         }
 
@@ -162,5 +162,21 @@ namespace GUI_POLYCAFE
         {
             openChildForm(new frmDoanhThuNhanVien());
         }
-    }
+
+        private void đĂNGXUẤTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //quay về form đăng nhập
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                AuthUtil.Logout();
+                this.Hide();
+                Form loginForm = new frmLogin();
+                loginForm.ShowDialog();
+                this.Close(); // Đóng form MainFrom sau khi đăng xuất
+
+
+            }
+        }
+    } 
 }

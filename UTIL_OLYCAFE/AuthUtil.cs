@@ -9,19 +9,18 @@ namespace UTIL_OLYCAFE
 {
     public class AuthUtil
     {
-        public static NHANVIEN user = null;
+        public static NHANVIEN user;
+
         public static bool IsLogin()
         {
-            if (user == null)
-            {
-                return false;
-            }
-            if(string.IsNullOrEmpty(user.MaNhanVien))
-            {
-                return false;
-            }
-            return true;
+            // Implementation for checking login status
+            return user != null;
+        }
 
+        public static void Logout()
+        {
+            // Implementation for logging out
+            user = null;
         }
     }
 }
