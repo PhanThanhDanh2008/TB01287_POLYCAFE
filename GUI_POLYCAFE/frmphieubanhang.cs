@@ -13,11 +13,11 @@ using UTIL_OLYCAFE;
 
 namespace GUI_POLYCAFE
 {
-    public partial class frmphieubanhangt : Form
+    public partial class frmphieubanhang : Form
     {
         private bool isLoadingTheLuuDongData = true;
 
-        public frmphieubanhangt()
+        public frmphieubanhang()
         {
             InitializeComponent();
         }

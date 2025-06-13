@@ -70,11 +70,11 @@
     <Compile Include="frmDoanhThuNhanVien.Designer.cs">
       <DependentUpon>frmDoanhThuNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmphieubanhangt.cs">
+    <Compile Include="frmphieubanhang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmphieubanhangt.Designer.cs">
-      <DependentUpon>frmphieubanhangt.cs</DependentUpon>
+    <Compile Include="frmphieubanhang.Designer.cs">
+      <DependentUpon>frmphieubanhang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDoiMK.cs">
       <SubType>Form</SubType>
@@ -136,8 +136,8 @@
     <EmbeddedResource Include="frmDoanhThuNhanVien.resx">
       <DependentUpon>frmDoanhThuNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmphieubanhangt.resx">
-      <DependentUpon>frmphieubanhangt.cs</DependentUpon>
+    <EmbeddedResource Include="frmphieubanhang.resx">
+      <DependentUpon>frmphieubanhang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoiMK.resx">
       <DependentUpon>frmDoiMK.cs</DependentUpon>

@@ -109,14 +109,13 @@ namespace GUI_POLYCAFE
                         string selectedPath = openFileDialog.FileName;
                         if (File.Exists(selectedPath))
                         {
-                            // Kiểm tra xem file có phải là ảnh hợp lệ không
                             try
                             {
                                 using (Image img = Image.FromFile(selectedPath))
                                 {
-                                    imagePath = selectedPath; // Lưu đường dẫn ảnh
-                                    pbHinhAnh.Image?.Dispose(); // Giải phóng ảnh cũ nếu có
-                                    pbHinhAnh.Image = new Bitmap(img); // Tạo bản sao để tránh khóa file
+                                    imagePath = selectedPath;
+                                    pbHinhAnh.Image?.Dispose();
+                                    pbHinhAnh.Image = new Bitmap(img);
                                 }
                             }
                             catch
@@ -147,21 +146,18 @@ namespace GUI_POLYCAFE
                 string maLoai = cbloaisp.SelectedValue?.ToString();
                 bool trangThai = rdbdangban.Checked;
 
-                // Kiểm tra dữ liệu nhập vào
                 if (string.IsNullOrEmpty(tenSP) || string.IsNullOrEmpty(donGiaText) || string.IsNullOrEmpty(maLoai))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Chuyển đổi đơn giá
                 if (!decimal.TryParse(donGiaText, out decimal donGia))
                 {
                     MessageBox.Show("Đơn giá không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Xử lý ảnh
                 string hinhAnh = "";
                 if (!string.IsNullOrEmpty(imagePath))
                 {
@@ -174,8 +170,8 @@ namespace GUI_POLYCAFE
                     string targetPath = Path.Combine(targetFolder, fileName);
                     if (File.Exists(imagePath))
                     {
-                        File.Copy(imagePath, targetPath, true); // Sao chép ảnh
-                        hinhAnh = fileName; // Lưu tên file
+                        File.Copy(imagePath, targetPath, true);
+                        hinhAnh = fileName;
                     }
                     else
                     {
@@ -184,9 +180,7 @@ namespace GUI_POLYCAFE
                     }
                 }
 
-
                 string savePath = ImageUtil.SaveImage(pbHinhAnh.Image, "Uploads");
-                // Tạo đối tượng sản phẩm
                 SanPham sp = new SanPham
                 {
                     TenSanPham = tenSP,
@@ -196,7 +190,6 @@ namespace GUI_POLYCAFE
                     HinhAnh = hinhAnh
                 };
 
-                // Thêm sản phẩm vào cơ sở dữ liệu
                 BLLsanpham bUSSanPham = new BLLsanpham();
                 string result = bUSSanPham.InsertSanPham(sp);
 
@@ -236,7 +229,6 @@ namespace GUI_POLYCAFE
                     rdbdangban.Checked = trangThai;
                     rdbngungban.Checked = !trangThai;
 
-                    // Lưu đường dẫn ảnh hiện tại
                     imagePath = row.Cells["HinhAnh"].Value?.ToString();
                     if (!string.IsNullOrEmpty(imagePath))
                     {
@@ -259,7 +251,6 @@ namespace GUI_POLYCAFE
                         pbHinhAnh.Image = null;
                     }
 
-                    // Cập nhật trạng thái nút
                     btnthem.Enabled = false;
                     btnsua.Enabled = true;
                     btnxoa.Enabled = true;
@@ -342,22 +333,19 @@ namespace GUI_POLYCAFE
                 bool trangThai = rdbdangban.Checked;
                 string maSP = txtmasp.Text.Trim();
 
-                // Kiểm tra dữ liệu nhập vào
                 if (string.IsNullOrEmpty(tenSP) || string.IsNullOrEmpty(donGiaText) || string.IsNullOrEmpty(maLoai) || string.IsNullOrEmpty(maSP))
                 {
                     MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Chuyển đổi đơn giá
                 if (!decimal.TryParse(donGiaText, out decimal donGia))
                 {
                     MessageBox.Show("Đơn giá không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Xử lý ảnh
-                string hinhAnh = imagePath; // Giữ nguyên ảnh hiện tại
+                string hinhAnh = imagePath;
                 if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
                 {
                     string targetFolder = Path.Combine(Application.StartupPath, "Images");
@@ -367,11 +355,10 @@ namespace GUI_POLYCAFE
                     }
                     string fileName = Path.GetFileName(imagePath);
                     string targetPath = Path.Combine(targetFolder, fileName);
-                    File.Copy(imagePath, targetPath, true); // Sao chép ảnh mới
-                    hinhAnh = fileName; // Cập nhật tên file ảnh
+                    File.Copy(imagePath, targetPath, true);
+                    hinhAnh = fileName;
                 }
 
-                // Tạo đối tượng sản phẩm
                 SanPham sp = new SanPham
                 {
                     MaSanPham = maSP,
@@ -379,10 +366,9 @@ namespace GUI_POLYCAFE
                     DonGia = donGia,
                     MaLoai = maLoai,
                     TrangThai = trangThai,
-                    HinhAnh = hinhAnh // Sử dụng ảnh hiện tại hoặc ảnh mới
+                    HinhAnh = hinhAnh
                 };
 
-                // Cập nhật sản phẩm
                 BLLsanpham bUSSanPham = new BLLsanpham();
                 string result = bUSSanPham.UpdateSanPham(sp);
 
@@ -412,8 +398,6 @@ namespace GUI_POLYCAFE
 
         private void frmquanlysanpham_Resize(object sender, EventArgs e)
         {
-            //label1.Left = (this.ClientSize.Width - label1.Width) / 2;
-            //label1.Top = 10;
         }
 
         private void btntimkiem_Click(object sender, EventArgs e)
@@ -430,7 +414,6 @@ namespace GUI_POLYCAFE
                 }
 
                 BLLsanpham bUSSanPham = new BLLsanpham();
-                // Tìm kiếm theo mã hoặc tên sản phẩm
                 List<SanPham> lstSP = bUSSanPham.TimKiemSanPham(keyword, keyword, "", -1);
 
                 dgvsanpham.DataSource = null;

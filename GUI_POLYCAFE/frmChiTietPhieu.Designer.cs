@@ -174,7 +174,7 @@
             this.dgrChiTiet.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgrChiTiet.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgrChiTiet.Location = new System.Drawing.Point(33, 172);
-            this.dgrChiTiet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgrChiTiet.Margin = new System.Windows.Forms.Padding(4);
             this.dgrChiTiet.Name = "dgrChiTiet";
             this.dgrChiTiet.RowHeadersVisible = false;
             this.dgrChiTiet.RowHeadersWidth = 51;
@@ -223,10 +223,10 @@
             this.groupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.Color.Yellow;
-            this.groupBox1.Location = new System.Drawing.Point(33, 591);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Location = new System.Drawing.Point(33, 574);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(613, 197);
+            this.groupBox1.Size = new System.Drawing.Size(613, 235);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.Text = "Thông Tin Thanh Toán";
             // 
@@ -430,7 +430,7 @@
             this.dgrSanPham.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgrSanPham.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgrSanPham.Location = new System.Drawing.Point(747, 172);
-            this.dgrSanPham.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgrSanPham.Margin = new System.Windows.Forms.Padding(4);
             this.dgrSanPham.Name = "dgrSanPham";
             this.dgrSanPham.ReadOnly = true;
             this.dgrSanPham.RowHeadersVisible = false;
@@ -471,7 +471,7 @@
             this.btnThemChiTiet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnThemChiTiet.ForeColor = System.Drawing.Color.White;
             this.btnThemChiTiet.Location = new System.Drawing.Point(667, 308);
-            this.btnThemChiTiet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThemChiTiet.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemChiTiet.Name = "btnThemChiTiet";
             this.btnThemChiTiet.Size = new System.Drawing.Size(67, 43);
             this.btnThemChiTiet.TabIndex = 7;
@@ -489,7 +489,7 @@
             this.btnXoaChiTiet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnXoaChiTiet.ForeColor = System.Drawing.Color.White;
             this.btnXoaChiTiet.Location = new System.Drawing.Point(667, 394);
-            this.btnXoaChiTiet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnXoaChiTiet.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaChiTiet.Name = "btnXoaChiTiet";
             this.btnXoaChiTiet.Size = new System.Drawing.Size(67, 43);
             this.btnXoaChiTiet.TabIndex = 7;
@@ -514,7 +514,7 @@
             this.Controls.Add(this.lbChuSoHuu);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmChiTietPhieu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Chi Tiết Phiếu Bán Hàng";
