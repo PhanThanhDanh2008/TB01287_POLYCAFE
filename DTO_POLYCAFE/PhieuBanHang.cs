@@ -17,5 +17,8 @@ namespace DTO_POLYCAFE
         public string HoTen { get; set; }
         public DateTime NgayTao { get; set; } = new DateTime();
         public bool TrangThai { get; set; } = true;
+
+
+
     }
 }

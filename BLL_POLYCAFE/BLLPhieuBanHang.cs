@@ -17,6 +17,18 @@ namespace BLL_POLYCAFE
             return dalPhieuBanHang.selectAll(maThe);
         }
 
+        public List<PhieuBanHang> SearchPhieuBanHang(string keyword)
+        {
+            try
+            {
+                return dalPhieuBanHang.SearchByKeyword(keyword);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi tìm kiếm phiếu bán hàng: " + ex.Message);
+            }
+        }
+
         public string InsertPhieuBanHang(PhieuBanHang pbh)
         {
             try
@@ -32,7 +44,6 @@ namespace BLL_POLYCAFE
             }
             catch (Exception ex)
             {
-                //return "Thêm mới không thành công.";
                 return "Lỗi: " + ex.Message;
             }
         }
@@ -51,7 +62,6 @@ namespace BLL_POLYCAFE
             }
             catch (Exception ex)
             {
-                //return "Cập nhật không thành công.";
                 return "Lỗi: " + ex.Message;
             }
         }
@@ -70,7 +80,6 @@ namespace BLL_POLYCAFE
             }
             catch (Exception ex)
             {
-                //return "Xóa không thành công.";
                 return "Lỗi: " + ex.Message;
             }
         }

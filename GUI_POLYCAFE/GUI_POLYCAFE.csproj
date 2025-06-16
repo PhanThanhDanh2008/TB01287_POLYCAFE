@@ -243,12 +243,17 @@
   <ItemGroup>
     <None Include="Resources\loupe.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\default_image-350x250.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\default_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

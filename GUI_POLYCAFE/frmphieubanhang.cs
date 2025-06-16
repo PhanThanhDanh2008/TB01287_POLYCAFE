@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -88,7 +89,7 @@ namespace GUI_POLYCAFE
             buttonColumn.HeaderText = "Thanh Toán";
             //buttonColumn.Text = "Thanh Toán";
             //buttonColumn.UseColumnTextForButtonValue = true; // Hiển thị văn bản lên nút
-            buttonColumn.Image = Properties.Resources.pay;
+            buttonColumn.Image = Properties.Resources.default_image; // Replace 'pay' with an existing resource
             buttonColumn.DefaultCellStyle.BackColor = Color.LightBlue;
             buttonColumn.DefaultCellStyle.ForeColor = Color.DarkBlue;
 
@@ -113,43 +114,7 @@ namespace GUI_POLYCAFE
 
         }
 
-        private void btnlammoi_Click(object sender, EventArgs e)
-        {
-            ClearForm("");
-            LoadTheLuuDong();
-            LoadNhanVien();
-            LoadDanhSachPhieu("");
-        }
-
-        private void dgrDanhSachPhieu_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            string maPhieu = dgrDanhSachPhieu.Rows[e.RowIndex].Cells["MaPhieu"].Value.ToString();
-            string maThe = dgrDanhSachPhieu.Rows[e.RowIndex].Cells["MaThe"].Value.ToString();
-            string maNV = dgrDanhSachPhieu.Rows[e.RowIndex].Cells["MaNhanVien"].Value.ToString();
-            PhieuBanHang phieu = (PhieuBanHang)dgrDanhSachPhieu.CurrentRow.DataBoundItem;
-            TheLuuDong the = new TheLuuDong();
-            NHANVIEN nv = new NHANVIEN();
-            foreach (TheLuuDong item in cboMaTheLuuDong.Items)
-            {
-                if (item.MaThe == maThe)
-                {
-                    the = item;
-                    break;
-                }
-            }
-
-            foreach (NHANVIEN item in cboNhanVienBH.Items)
-            {
-                if (item.MaNhanVien == maNV)
-                {
-                    nv = item;
-                    break;
-                }
-            }
-            frmChiTietPhieu frmChiTiet = new frmChiTietPhieu(the, phieu, nv);
-            frmChiTiet.ShowDialog();
-        }
-
+       
         private void dgrDanhSachPhieu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             isLoadingTheLuuDongData = true;
@@ -188,45 +153,46 @@ namespace GUI_POLYCAFE
             }
         }
 
-        private void dgrDanhSachPhieu_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
         {
-            isLoadingTheLuuDongData = true;
-            DataGridViewRow row = dgrDanhSachPhieu.Rows[e.RowIndex];
-            cboMaTheLuuDong.SelectedValue = row.Cells["MaThe"].Value.ToString();
-            cboNhanVienBH.SelectedValue = row.Cells["MaNhanVien"].Value.ToString();
-            dtpNgayTao.Text = row.Cells["NgayTao"].Value.ToString();
-            txtMaPhieu.Text = row.Cells["MaPhieu"].Value.ToString();
-
-            bool trangThai = Convert.ToBoolean(row.Cells["TrangThai"].Value);
-            if (trangThai)
+            string searchValue = txtTimKiem.Text.Trim();
+            if (string.IsNullOrEmpty(searchValue))
             {
-                rdbPaid.Checked = true;
-                rdbPaid.Enabled = false;
-                rdbConfirmation.Enabled = false;
-                cboNhanVienBH.Enabled = false;
-                dtpNgayTao.Enabled = false;
-                btnThemPhieu.Enabled = false;
-                btnSuaPhieu.Enabled = false;
-                btnXoaPhieu.Enabled = false;
-
+                MessageBox.Show("Vui lòng nhập thông tin tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            else
+
+            try
             {
-                rdbPaid.Checked = false;
-                rdbPaid.Enabled = true;
-                rdbConfirmation.Enabled = true;
-                cboNhanVienBH.Enabled = true;
-                rdbConfirmation.Checked = true;
-                rdbConfirmation.Enabled = true;
-                dtpNgayTao.Enabled = true;
-                // Bật nút "Sửa"
-                btnThemPhieu.Enabled = false;
-                btnSuaPhieu.Enabled = true;
-                btnXoaPhieu.Enabled = true;
+                BLLPhieuBanHang busPhieuBanHang = new BLLPhieuBanHang();
+                List<PhieuBanHang> searchResults = busPhieuBanHang.SearchPhieuBanHang(searchValue);
+                if (searchResults == null || searchResults.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy phiếu bán hàng nào với thông tin đã nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgrDanhSachPhieu.DataSource = null;
+                }
+                else
+                {
+                    dgrDanhSachPhieu.DataSource = searchResults;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tìm kiếm: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnThemPhieu_Click(object sender, EventArgs e)
+        private void txtTimKiem_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTimKiem.Text.Trim()))
+            {
+                LoadDanhSachPhieu("");
+            }
+        }
+
+        private void btnThemPhieu_Click_1(object sender, EventArgs e)
         {
             string maThe = cboMaTheLuuDong.SelectedValue?.ToString();
             string maNhanVien = cboNhanVienBH.SelectedValue?.ToString();
@@ -272,57 +238,7 @@ namespace GUI_POLYCAFE
             }
         }
 
-        private void btnSuaPhieu_Click(object sender, EventArgs e)
-        {
-            string maThe = cboMaTheLuuDong.SelectedValue?.ToString();
-            string maPhieu = txtMaPhieu.Text;
-            string maNhanVien = cboNhanVienBH.SelectedValue?.ToString();
-            DateTime ngayTao = dtpNgayTao.Value;
-
-            bool trangThai;
-            if (rdbConfirmation.Checked)
-            {
-                trangThai = false;
-            }
-            else
-
-
-            {
-                trangThai = true;
-            }
-            if (string.IsNullOrEmpty(maNhanVien) || string.IsNullOrEmpty(maThe))
-            {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin phiếu bán hàng.");
-                return;
-            }
-
-            PhieuBanHang theLuuDong = new PhieuBanHang
-            {
-                MaPhieu = maPhieu,
-                MaThe = maThe,
-                MaNhanVien = maNhanVien,
-                NgayTao = ngayTao,
-                TrangThai = trangThai
-            };
-            BLLPhieuBanHang bus = new BLLPhieuBanHang(); 
-            string result = bus.UpdatePhieuBanHang(theLuuDong);
-
-            if (string.IsNullOrEmpty(result))
-            {
-                MessageBox.Show("Cập nhật thông tin thành công");
-                ClearForm(maThe);
-                LoadTheLuuDong();
-                LoadNhanVien();
-                LoadDanhSachPhieu("");
-                cboMaTheLuuDong.SelectedValue = maThe;
-            }
-            else
-            {
-                MessageBox.Show(result);
-            }
-        }
-
-        private void btnXoaPhieu_Click(object sender, EventArgs e)
+        private void btnXoaPhieu_Click_1(object sender, EventArgs e)
         {
             string maPhieu = txtMaPhieu.Text.Trim();
             string maThe = cboMaTheLuuDong.SelectedValue?.ToString();
@@ -374,6 +290,131 @@ namespace GUI_POLYCAFE
                 }
 
             }
+        }
+
+        private void btnSuaPhieu_Click_1(object sender, EventArgs e)
+        {
+            string maThe = cboMaTheLuuDong.SelectedValue?.ToString();
+            string maPhieu = txtMaPhieu.Text;
+            string maNhanVien = cboNhanVienBH.SelectedValue?.ToString();
+            DateTime ngayTao = dtpNgayTao.Value;
+
+            bool trangThai;
+            if (rdbConfirmation.Checked)
+            {
+                trangThai = false;
+            }
+            else
+
+
+            {
+                trangThai = true;
+            }
+            if (string.IsNullOrEmpty(maNhanVien) || string.IsNullOrEmpty(maThe))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin phiếu bán hàng.");
+                return;
+            }
+
+            PhieuBanHang theLuuDong = new PhieuBanHang
+            {
+                MaPhieu = maPhieu,
+                MaThe = maThe,
+                MaNhanVien = maNhanVien,
+                NgayTao = ngayTao,
+                TrangThai = trangThai
+            };
+            BLLPhieuBanHang bus = new   BLLPhieuBanHang ();
+            string result = bus.UpdatePhieuBanHang(theLuuDong);
+
+            if (string.IsNullOrEmpty(result))
+            {
+                MessageBox.Show("Cập nhật thông tin thành công");
+                ClearForm(maThe);
+                LoadTheLuuDong();
+                LoadNhanVien();
+                LoadDanhSachPhieu("");
+                cboMaTheLuuDong.SelectedValue = maThe;
+            }
+            else
+            {
+                MessageBox.Show(result);
+            }
+        }
+
+        private void btnlammoi_Click_1(object sender, EventArgs e)
+        {
+            ClearForm("");
+            LoadTheLuuDong();
+            LoadNhanVien();
+            LoadDanhSachPhieu("");
+        }
+
+        private void dgrDanhSachPhieu_CellClick_2(object sender, DataGridViewCellEventArgs e)
+        {
+            isLoadingTheLuuDongData = true;
+            DataGridViewRow row = dgrDanhSachPhieu.Rows[e.RowIndex];
+            cboMaTheLuuDong.SelectedValue = row.Cells["MaThe"].Value.ToString();
+            cboNhanVienBH.SelectedValue = row.Cells["MaNhanVien"].Value.ToString();
+            dtpNgayTao.Text = row.Cells["NgayTao"].Value.ToString();
+            txtMaPhieu.Text = row.Cells["MaPhieu"].Value.ToString();
+
+            bool trangThai = Convert.ToBoolean(row.Cells["TrangThai"].Value);
+            if (trangThai)
+            {
+                rdbPaid.Checked = true;
+                rdbPaid.Enabled = false;
+                rdbConfirmation.Enabled = false;
+                cboNhanVienBH.Enabled = false;
+                dtpNgayTao.Enabled = false;
+                btnThemPhieu.Enabled = false;
+                btnSuaPhieu.Enabled = false;
+                btnXoaPhieu.Enabled = false;
+
+            }
+            else
+            {
+                rdbPaid.Checked = false;
+                rdbPaid.Enabled = true;
+                rdbConfirmation.Enabled = true;
+                cboNhanVienBH.Enabled = true;
+                rdbConfirmation.Checked = true;
+                rdbConfirmation.Enabled = true;
+                dtpNgayTao.Enabled = true;
+                // Bật nút "Sửa"
+                btnThemPhieu.Enabled = false;
+                btnSuaPhieu.Enabled = true;
+                btnXoaPhieu.Enabled = true;
+            }
+        }
+
+        private void dgrDanhSachPhieu_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            string maPhieu = dgrDanhSachPhieu.Rows[e.RowIndex].Cells["MaPhieu"].Value.ToString();
+            string maThe = dgrDanhSachPhieu.Rows[e.RowIndex].Cells["MaThe"].Value.ToString();
+            string maNV = dgrDanhSachPhieu.Rows[e.RowIndex].Cells["MaNhanVien"].Value.ToString();
+            PhieuBanHang phieu = (PhieuBanHang)dgrDanhSachPhieu.CurrentRow.DataBoundItem;
+            TheLuuDong the = new TheLuuDong();
+            NHANVIEN nv = new NHANVIEN();
+            foreach (TheLuuDong item in cboMaTheLuuDong.Items)
+            {
+                if (item.MaThe == maThe)
+                {
+                    the = item;
+                    break;
+                }
+            }
+
+            foreach (NHANVIEN item in cboNhanVienBH.Items)
+            {
+                if (item.MaNhanVien == maNV)
+                {
+                    nv = item;
+                    break;
+                }
+            }
+            frmChiTietPhieu frmChiTiet = new frmChiTietPhieu(the, phieu, nv);
+            frmChiTiet.ShowDialog();
         }
     }
 }

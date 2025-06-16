@@ -46,6 +46,7 @@ namespace GUI_POLYCAFE
         {
             clearForm();
             LoadDanhSachThe();
+            ConfigureDataGridViewColumns(); // Cấu hình cột cho DataGridView
         }
         private void LoadDanhSachThe()
         {
@@ -225,6 +226,54 @@ namespace GUI_POLYCAFE
             btnxoa.Enabled = true;
             // Tắt chỉnh sửa mã thẻ
             txtmathe.Enabled = false;
+        }
+        private void ConfigureDataGridViewColumns()
+        {
+            dgrDanhSachThe.AutoGenerateColumns = false;
+            dgrDanhSachThe.Columns.Clear();
+
+            dgrDanhSachThe.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "MaThe",
+                HeaderText = "Mã Thẻ",
+                DataPropertyName = "MaThe",
+                Width = 150
+            });
+
+            dgrDanhSachThe.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "ChuSoHuu",
+                HeaderText = "Chủ Sở Hữu",
+                DataPropertyName = "ChuSoHuu",
+                Width = 400
+            });
+
+            dgrDanhSachThe.Columns.Add(new DataGridViewCheckBoxColumn
+            {
+                Name = "TrangThai",
+                HeaderText = "Trạng Thái",
+                DataPropertyName = "TrangThai",
+                Width = 100
+            });
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string searchText = txtTimKiem.Text.Trim().ToLower();
+            if (string.IsNullOrEmpty(searchText))
+            {
+                LoadDanhSachThe(); // Hiển thị toàn bộ danh sách nếu không nhập gì
+                return;
+            }
+
+            BLLTHELUUDONG bLLTHELUUDONG = new BLLTHELUUDONG();
+            List<TheLuuDong> fullList = bLLTHELUUDONG.GetTheLuuDongList();
+            var filteredList = fullList.Where(t =>
+                t.MaThe.ToLower().Contains(searchText) ||
+                t.ChuSoHuu.ToLower().Contains(searchText)).ToList();
+
+            dgrDanhSachThe.DataSource = null;
+            dgrDanhSachThe.DataSource = filteredList;
         }
     }
 }
