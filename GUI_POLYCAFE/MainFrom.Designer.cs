@@ -48,13 +48,14 @@
             this.qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qUẢNLÝCHITIẾTPHIẾUBÁNHÀNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTXTTIEMKIEM = new System.Windows.Forms.ToolStripTextBox();
+            this.qUẢNLÝCALÀMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlmain
             // 
             this.pnlmain.Location = new System.Drawing.Point(0, 29);
-            this.pnlmain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlmain.Margin = new System.Windows.Forms.Padding(2);
             this.pnlmain.Name = "pnlmain";
             this.pnlmain.Size = new System.Drawing.Size(1174, 663);
             this.pnlmain.TabIndex = 2;
@@ -164,7 +165,8 @@
             // 
             this.mỤCLỤCToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.QLNVToolStripMenuItem,
-            this.qUẢNLÝTHẺLƯUĐỘNGToolStripMenuItem});
+            this.qUẢNLÝTHẺLƯUĐỘNGToolStripMenuItem,
+            this.qUẢNLÝCALÀMToolStripMenuItem});
             this.mỤCLỤCToolStripMenuItem.Name = "mỤCLỤCToolStripMenuItem";
             this.mỤCLỤCToolStripMenuItem.Size = new System.Drawing.Size(71, 23);
             this.mỤCLỤCToolStripMenuItem.Text = "MỤC LỤC";
@@ -214,6 +216,13 @@
             this.toolStripTXTTIEMKIEM.Size = new System.Drawing.Size(200, 23);
             this.toolStripTXTTIEMKIEM.Click += new System.EventHandler(this.toolStripTXTTIEMKIEM_Click);
             // 
+            // qUẢNLÝCALÀMToolStripMenuItem
+            // 
+            this.qUẢNLÝCALÀMToolStripMenuItem.Name = "qUẢNLÝCALÀMToolStripMenuItem";
+            this.qUẢNLÝCALÀMToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.qUẢNLÝCALÀMToolStripMenuItem.Text = "QUẢN LÝ CA LÀM";
+            this.qUẢNLÝCALÀMToolStripMenuItem.Click += new System.EventHandler(this.qUẢNLÝCALÀMToolStripMenuItem_Click);
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,7 +233,7 @@
             this.Controls.Add(this.pnlmain);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(1190, 731);
             this.MinimumSize = new System.Drawing.Size(1190, 731);
             this.Name = "MainFrom";
@@ -259,5 +268,6 @@
         private System.Windows.Forms.ToolStripMenuItem qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem qUẢNLÝCHITIẾTPHIẾUBÁNHÀNGToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTXTTIEMKIEM;
+        private System.Windows.Forms.ToolStripMenuItem qUẢNLÝCALÀMToolStripMenuItem;
     }
 }

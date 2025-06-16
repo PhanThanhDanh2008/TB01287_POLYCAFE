@@ -319,5 +319,52 @@ namespace GUI_POLYCAFE
             txtGiamGia.Text = giamGia.ToString("N0");
             txtThanhTien.Text = thanhTien.ToString("N0");
         }
+
+        private void btnthanhtoan_Click(object sender, EventArgs e)
+        {
+            if (isActive)
+            {
+                MessageBox.Show("Phiếu này đã được thanh toán.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Lấy tổng tiền, dịch vụ, giảm giá, thành tiền
+            if (!decimal.TryParse(txtTong.Text, out decimal tongTien))
+            {
+                MessageBox.Show("Tổng tiền không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            decimal.TryParse(txtDichVu.Text, out decimal dichVu);
+            decimal.TryParse(txtPhanTram.Text, out decimal phanTram);
+            decimal giamGia = tongTien * phanTram / 100;
+            decimal thanhTien = tongTien + dichVu - giamGia;
+
+            // Xác nhận thanh toán
+            DialogResult result = MessageBox.Show(
+                $"Tổng tiền: {tongTien:N0}\nDịch vụ: {dichVu:N0}\nGiảm giá: {giamGia:N0}\nThành tiền: {thanhTien:N0}\n\nBạn có chắc chắn muốn thanh toán?",
+                "Xác nhận thanh toán",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                // Cập nhật trạng thái phiếu bán hàng
+                phieuBanHang.TrangThai = true;
+                // Gọi BLL để cập nhật trạng thái phiếu
+                BLLPhieuBanHang busPhieu = new BLLPhieuBanHang();
+                string updateResult = busPhieu.UpdatePhieuBanHang(phieuBanHang);
+
+                if (string.IsNullOrEmpty(updateResult))
+                {
+                    MessageBox.Show("Thanh toán thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    isActive = true;
+                    activeTranfer();
+                }
+                else
+                {
+                    MessageBox.Show("Thanh toán thất bại: " + updateResult, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

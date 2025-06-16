@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLLCaTruc.cs" />
     <Compile Include="BLLLOAISANPHAM.cs" />
     <Compile Include="BLLNHANVIEN.cs" />
     <Compile Include="BLLPhieuBanHang.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="BLLTHELUUDONG.CS" />
     <Compile Include="BusChiTietPhieu.cs" />
     <Compile Include="BUSThongKe.cs" />
+    <Compile Include="LichLamViecBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
