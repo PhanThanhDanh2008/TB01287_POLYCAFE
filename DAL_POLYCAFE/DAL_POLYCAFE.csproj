@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DALCaTruc.cs" />
     <Compile Include="DALChiTietPhieu.cs" />
     <Compile Include="DALLoaiSanPham.cs" />
     <Compile Include="DALPhieuBanHang.cs" />
@@ -52,7 +51,6 @@
     <Compile Include="DALThongKe.cs" />
     <Compile Include="DAL_NHANVIEN.cs" />
     <Compile Include="DBUtil.cs" />
-    <Compile Include="LichLamViecDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
