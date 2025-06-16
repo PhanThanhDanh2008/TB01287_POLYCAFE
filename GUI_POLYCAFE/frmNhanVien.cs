@@ -391,5 +391,34 @@ namespace GUI_POLYCAFE
                 dataNhanVien.Refresh();
             }
         }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string searchValue = txtTimKiem.Text.Trim();
+            if (string.IsNullOrEmpty(searchValue))
+            {
+                MessageBox.Show("Vui lòng nhập thông tin tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                BLLNHANVIEN bLLNHANVIEN = new BLLNHANVIEN();
+                List<NHANVIEN> searchResults = bLLNHANVIEN.SearchNhanVien(searchValue);
+                if (searchResults == null || searchResults.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy nhân viên nào với thông tin đã nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dataNhanVien.DataSource = null; // Hoặc giữ nguyên danh sách hiện tại
+                }
+                else
+                {
+                    dataNhanVien.DataSource = searchResults;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi khi tìm kiếm: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

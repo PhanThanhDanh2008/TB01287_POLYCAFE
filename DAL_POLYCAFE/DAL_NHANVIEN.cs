@@ -94,7 +94,7 @@ namespace DAL_POLYCAFE
             }
         }
 
-        public  List<NHANVIEN> selectBySql(string sql, List<object> args, CommandType cmdType = CommandType.Text)
+        public List<NHANVIEN> selectBySql(string sql, List<object> args, CommandType cmdType = CommandType.Text)
         {
             List<NHANVIEN> list = new List<NHANVIEN>();
             try
@@ -109,7 +109,7 @@ namespace DAL_POLYCAFE
                     entity.MatKhau = reader.GetString(3);
                     entity.VaiTro = reader.GetBoolean(4);
                     entity.TrangThai = reader.GetBoolean(5);
-                    
+
                     //entity.MaNhanVien = reader["MaNhanVien"].ToString();
                     //entity.HoTen = reader["HoTen"].ToString();
                     //entity.Email = reader["Email"].ToString();
@@ -128,7 +128,7 @@ namespace DAL_POLYCAFE
         public List<NHANVIEN> selectAll()
         {
             string sql = "SELECT * FROM NhanVien";
-            return selectBySql(sql,new List<object>());
+            return selectBySql(sql, new List<object>());
         }
 
         public NHANVIEN selectById(string id)
@@ -180,8 +180,27 @@ namespace DAL_POLYCAFE
             thamSo.Add(maNhanVien);
             DBUtil.Update(sql, thamSo);
         }
+        // tìm kiếm nhân viên theo tên hoặc mã 
+        public List<NHANVIEN> SearchByNameOrId(string searchTerm)
+        {
+            try
+            {
+                string sql = "SELECT * FROM NhanVien WHERE MaNhanVien LIKE @0 OR HoTen LIKE @1 OR Email LIKE @2";
+                List<object> thamSo = new List<object>
+        {
+            $"%{searchTerm}%",
+            $"%{searchTerm}%",
+            $"%{searchTerm}%"
+        };
+                return selectBySql(sql, thamSo);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi truy vấn tìm kiếm nhân viên: " + ex.Message);
+            }
+        }
+
+
     }
-
-
 }
 

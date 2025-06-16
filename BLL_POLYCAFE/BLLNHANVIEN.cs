@@ -45,7 +45,7 @@ namespace BLL_POLYCAFE
             try
             {
                 nv.MaNhanVien = dalNhanVien.generateMaNhanVien();
-                if(string.IsNullOrEmpty(nv.MaNhanVien) || string.IsNullOrEmpty(nv.HoTen) || string.IsNullOrEmpty(nv.Email) || string.IsNullOrEmpty(nv.MatKhau))
+                if (string.IsNullOrEmpty(nv.MaNhanVien) || string.IsNullOrEmpty(nv.HoTen) || string.IsNullOrEmpty(nv.Email) || string.IsNullOrEmpty(nv.MatKhau))
                 {
                     return "Vui lòng nhập đầy đủ thông tin";
                 }
@@ -53,7 +53,7 @@ namespace BLL_POLYCAFE
                 {
                     return "Mã nhân viên khong hop le";
                 }
-                if (dalNhanVien.CheckEmailExceptId(nv.Email,nv.Email))
+                if (dalNhanVien.CheckEmailExceptId(nv.Email, nv.Email))
                 {
                     return "Email đã tồn tại";
                 }
@@ -118,6 +118,17 @@ namespace BLL_POLYCAFE
             return dalNhanVien.CheckEmailExceptId(email, maNhanVien);
         }
 
-
+        // Tìm kiếm nhân viên theo tên hoặc mã
+        public List<NHANVIEN> SearchNhanVien(string keyword)
+        {
+            try
+            {
+                return dalNhanVien.SearchByNameOrId(keyword);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi khi tìm kiếm nhân viên: " + ex.Message);
+            }
+        }
     }
 }
