@@ -52,6 +52,7 @@
     <Compile Include="DAL_NHANVIEN.cs" />
     <Compile Include="DBUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThietBiDAL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO_POLYCAFE\DTO_POLYCAFE.csproj">

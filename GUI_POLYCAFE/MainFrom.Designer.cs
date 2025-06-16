@@ -44,11 +44,11 @@
             this.mỤCLỤCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.QLNVToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qUẢNLÝTHẺLƯUĐỘNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.qUẢNLÝCALÀMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHIẾUBÁNHÀNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.qUẢNLÝCHITIẾTPHIẾUBÁNHÀNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTXTTIEMKIEM = new System.Windows.Forms.ToolStripTextBox();
-            this.qUẢNLÝCALÀMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -185,6 +185,13 @@
             this.qUẢNLÝTHẺLƯUĐỘNGToolStripMenuItem.Text = "QUẢN LÝ THẺ LƯU ĐỘNG";
             this.qUẢNLÝTHẺLƯUĐỘNGToolStripMenuItem.Click += new System.EventHandler(this.qUẢNLÝTHẺLƯUĐỘNGToolStripMenuItem_Click);
             // 
+            // qUẢNLÝCALÀMToolStripMenuItem
+            // 
+            this.qUẢNLÝCALÀMToolStripMenuItem.Name = "qUẢNLÝCALÀMToolStripMenuItem";
+            this.qUẢNLÝCALÀMToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.qUẢNLÝCALÀMToolStripMenuItem.Text = "QUẢN LÝ THIẾT BỊ";
+            this.qUẢNLÝCALÀMToolStripMenuItem.Click += new System.EventHandler(this.qUẢNLÝCALÀMToolStripMenuItem_Click);
+            // 
             // pHIẾUBÁNHÀNGToolStripMenuItem
             // 
             this.pHIẾUBÁNHÀNGToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -215,13 +222,6 @@
             this.toolStripTXTTIEMKIEM.Name = "toolStripTXTTIEMKIEM";
             this.toolStripTXTTIEMKIEM.Size = new System.Drawing.Size(200, 23);
             this.toolStripTXTTIEMKIEM.Click += new System.EventHandler(this.toolStripTXTTIEMKIEM_Click);
-            // 
-            // qUẢNLÝCALÀMToolStripMenuItem
-            // 
-            this.qUẢNLÝCALÀMToolStripMenuItem.Name = "qUẢNLÝCALÀMToolStripMenuItem";
-            this.qUẢNLÝCALÀMToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.qUẢNLÝCALÀMToolStripMenuItem.Text = "QUẢN LÝ CA LÀM";
-            this.qUẢNLÝCALÀMToolStripMenuItem.Click += new System.EventHandler(this.qUẢNLÝCALÀMToolStripMenuItem_Click);
             // 
             // MainFrom
             // 
