@@ -46,8 +46,12 @@ namespace GUI_POLYCAFE
                     return;
                 }
 
+                // Lưu thông tin người dùng vào AuthUtil
                 AuthUtil.user = nv;
-                MainFrom main = new MainFrom();
+
+                // Chuyển đổi VaiTrò (bool) sang int (1 cho true, 0 cho false)
+                int vaiTro = nv.VaiTro ? 1 : 0;
+                MainFrom main = new MainFrom(vaiTro);
                 main.Show();
                 this.Hide();
             }

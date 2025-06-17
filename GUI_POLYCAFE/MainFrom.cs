@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UTIL_OLYCAFE;
 
@@ -13,31 +6,46 @@ namespace GUI_POLYCAFE
 {
     public partial class MainFrom : Form
     {
-        public MainFrom()
+        private int vaiTro;
+        private Form currentFormChild;
+
+        public MainFrom(int vaiTro)
         {
             InitializeComponent();
-            // Kiểm tra quyền truy cập của người dùng
-            //CheckPermission();
+            this.vaiTro = vaiTro; // Nhận vaiTro từ form login
+            ApplyRoleBasedPermissions();
         }
 
-
-
-
-
-        private void bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ApplyRoleBasedPermissions()
         {
-
-        }
-
-        private void btnthoatmain_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (vaiTro == 0) // Nhân viên (false)
             {
-                Application.Exit();
+                manageProductMenuItem.Enabled = false;
+                manageProductTypeMenuItem.Enabled = false;
+                productRevenueReportMenuItem.Enabled = false;
+                staffRevenueReportMenuItem.Enabled = false;
+                manageStaffMenuItem.Enabled = false;
+                manageMobileCardMenuItem.Enabled = false;
+                manageDeviceMenuItem.Enabled = false;
+                // Phiếu bán hàng: Nhân viên chỉ xem
+                manageSalesReceiptMenuItem.Enabled = true;
+                manageSalesDetailMenuItem.Enabled = true;
+            }
+            else // Quản lý (true)
+            {
+                // Quản lý có toàn quyền
+                manageProductMenuItem.Enabled = true;
+                manageProductTypeMenuItem.Enabled = true;
+                productRevenueReportMenuItem.Enabled = true;
+                staffRevenueReportMenuItem.Enabled = true;
+                manageStaffMenuItem.Enabled = true;
+                manageMobileCardMenuItem.Enabled = true;
+                manageDeviceMenuItem.Enabled = true;
+                manageSalesReceiptMenuItem.Enabled = true;
+                manageSalesDetailMenuItem.Enabled = true;
             }
         }
-        private Form currentFormChild;
+
         private void openChildForm(Form childForm)
         {
             if (currentFormChild != null)
@@ -56,72 +64,26 @@ namespace GUI_POLYCAFE
 
         private void MainFrom_Load(object sender, EventArgs e)
         {
-            //VaiTroNhanVien();
-        }
-        //private void CheckPermission()
-        //{
-        //    if (AuthUtil.IsLogin())
-        //    {
-        //        hỆTHỐNGToolStripMenuItem.Visible = true;
-        //        dANHMỤCToolStripMenuItem.Visible = true;
-        //        pHIẾUBÁNHÀNGToolStripMenuItem.Visible = true;
-        //        mỤCLỤCToolStripMenuItem.Visible = true;
-        //        bÁOCÁOToolStripMenuItem.Visible = true;
-
-
-        //        if (AuthUtil.user.VaiTro == false)
-        //        {
-        //            VaiTroNhanVien();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        hỆTHỐNGToolStripMenuItem.Visible = true;
-        //        đĂNGXUẤTToolStripMenuItem.Visible = false;
-        //        dANHMỤCToolStripMenuItem.Visible = false;
-        //        pHIẾUBÁNHÀNGToolStripMenuItem.Visible = false;
-        //        mỤCLỤCToolStripMenuItem.Visible = false;
-        //        bÁOCÁOToolStripMenuItem.Visible = false;
-        //    }
-        //}
-
-        // Phương thức để áp dụng quyền cho nhân viên
-        private void VaiTroNhanVien()
-        {
-            // Nhân viên chỉ được phép một số menu nhất định
-            qUẢNLÝSẢNPHẨMToolStripMenuItem.Enabled = true;
-            qUẢNLÝLOẠISẢNPHẨMToolStripMenuItem.Enabled = true;
-            qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem.Enabled = true;
-            qUẢNLÝCHITIẾTPHIẾUBÁNHÀNGToolStripMenuItem.Enabled = true;
-            toolStripTXTTIEMKIEM.Enabled = true;
-
-            // Vô hiệu hóa các menu không cho nhân viên truy cập
-            bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem.Enabled = false;
-            bÁOCÁODOANHTHUNHÂNVIÊNToolStripMenuItem.Enabled = false;
-            QLNVToolStripMenuItem.Enabled = false;
-            qUẢNLÝTHẺLƯUĐỘNGToolStripMenuItem.Enabled = false;
+            // Áp dụng quyền khi form tải (đã xử lý trong constructor)
         }
 
-
-        private void DOIMATKHAUToolStripMenuItem_Click(object sender, EventArgs e)
+        private void changePasswordMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new frmDoiMK());
         }
 
-        private void QLNVToolStripMenuItem_Click(object sender, EventArgs e)
+        private void manageStaffMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new frmNhanVien());
         }
 
-        private void toolStripTXTTIEMKIEM_Click(object sender, EventArgs e)
+        private void searchTextBox_Click(object sender, EventArgs e)
         {
-
-
+            // Xử lý tìm kiếm nếu cần
         }
 
-        private void tHOÁTToolStripMenuItem_Click(object sender, EventArgs e)
+        private void exitMenuItem_Click(object sender, EventArgs e)
         {
-
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn thoát không?", "Xác nhận thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -129,43 +91,43 @@ namespace GUI_POLYCAFE
             }
         }
 
-        private void qUẢNLÝTHẺLƯUĐỘNGToolStripMenuItem_Click(object sender, EventArgs e)
+        private void manageMobileCardMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new frmtheluudong());
         }
 
-        private void qUẢNLÝPHIẾUBÁNHÀNGToolStripMenuItem_Click(object sender, EventArgs e)
+        private void manageSalesReceiptMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new frmphieubanhang());
         }
 
-        private void qUẢNLÝSẢNPHẨMToolStripMenuItem_Click(object sender, EventArgs e)
+        private void manageProductMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new frmquanlysanpham());
         }
 
-        private void pHIẾUBÁNHÀNGToolStripMenuItem_Click(object sender, EventArgs e)
+        private void salesReceiptMenuItem_Click(object sender, EventArgs e)
         {
-
+            // Có thể không cần xử lý riêng nếu đã có sub-menu
         }
 
-        private void qUẢNLÝCHITIẾTPHIẾUBÁNHÀNGToolStripMenuItem_Click(object sender, EventArgs e)
+        private void manageSalesDetailMenuItem_Click(object sender, EventArgs e)
         {
+            // Xử lý form chi tiết phiếu bán hàng
         }
 
-        private void bÁOCÁODOANHTHUSẢNPHẨMToolStripMenuItem_Click(object sender, EventArgs e)
+        private void productRevenueReportMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new frmDoanhThuLoaiSP());
         }
 
-        private void bÁOCÁODOANHTHUNHÂNVIÊNToolStripMenuItem_Click(object sender, EventArgs e)
+        private void staffRevenueReportMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new frmDoanhThuNhanVien());
         }
 
-        private void đĂNGXUẤTToolStripMenuItem_Click(object sender, EventArgs e)
+        private void logoutMenuItem_Click(object sender, EventArgs e)
         {
-            //quay về form đăng nhập
             DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
@@ -173,20 +135,23 @@ namespace GUI_POLYCAFE
                 this.Hide();
                 Form loginForm = new frmLogin();
                 loginForm.ShowDialog();
-                this.Close(); // Đóng form MainFrom sau khi đăng xuất
-
-
+                this.Close();
             }
         }
 
-        private void qUẢNLÝLOẠISẢNPHẨMToolStripMenuItem_Click(object sender, EventArgs e)
+        private void manageProductTypeMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new frmquanlyloaisanpham());
         }
 
-        private void qUẢNLÝCALÀMToolStripMenuItem_Click(object sender, EventArgs e)
+        private void manageDeviceMenuItem_Click(object sender, EventArgs e)
         {
             openChildForm(new frmQuanLyThietBi());
         }
-    } 
+
+        private void accountInfoMenuItem_Click(object sender, EventArgs e)
+        {
+            openChildForm(new frmthongtintaikhoan());
+        }
+    }
 }
